@@ -2,6 +2,7 @@ public class Game {
     public int playerNum; //the number of players
     public int currentRound; //current round
     public int[] currentPlayer; //
+    public Boolean isEnd; 
     public Player[] players; //an array for all the players
     public Board board;//game board
 
