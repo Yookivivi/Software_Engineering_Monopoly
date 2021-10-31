@@ -1,10 +1,6 @@
-package Square;
-
-
-
 public class LandSquare extends Square {
     private String name;
-    private int player;
+    private int owner;
     private int rent;
     private int price;
 
@@ -12,7 +8,7 @@ public class LandSquare extends Square {
 
     public void setOwner(int player){};
     public int getOwner(){
-        return player;
+        return owner;
     }
 
     public int getPrice(){
@@ -21,4 +17,6 @@ public class LandSquare extends Square {
     public int getRent(){
         return rent;
     }
+
+    public void updateMoney(Player renter, Player owner){};
 }
