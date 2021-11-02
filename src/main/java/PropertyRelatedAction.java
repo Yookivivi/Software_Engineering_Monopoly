@@ -1,4 +1,4 @@
 public class PropertyRelatedAction extends ActionController{
-    public void buyland(){};
-    public void updateProperty(){};// update the user property list
+    public void buyland(Player p){};
+    public void updateProperty(Player p){};// update the user property list
 }
