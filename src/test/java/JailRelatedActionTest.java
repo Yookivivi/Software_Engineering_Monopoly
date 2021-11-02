@@ -18,6 +18,22 @@ class JailRelatedActionTest {
         Assertions.assertFalse(p.getInJail());
     }
 
+    @Test
+    @DisplayName("Test get rollDouble if the two dices are equal")
+    void rollDoubleTest1(){
+        d.dice1 = 1;
+        d.dice2 = 1;
+        Assertions.assertTrue(j.getRollDouble());
+    }
+    
+    @Test
+    @DisplayName("Test get rollDouble if the two dices are not equal")
+    void rollDoubleTest2(){
+        d.dice1 = 1;
+        d.dice2 = 2;
+        Assertions.assertFalse(j.getRollDouble());
+    }
+
 
     @Test
     @DisplayName("Test the first round in jail, suppose the player chooses to roll dice")
