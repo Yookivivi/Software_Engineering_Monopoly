@@ -1,5 +1,8 @@
 public class JailRelatedAction extends ActionController{
     private boolean rollDouble;
 
-    public void updateInJail(){};// update the players' state of inJail
+    public void updateInJail(Player p){};// update the players' state of inJail
+    public boolean getRollDouble(){
+        return rollDouble;
+    };
 }
