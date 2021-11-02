@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,22 +7,35 @@ import static org.junit.jupiter.api.Assertions.*;
 class ActionControllerTest {
     private ActionController a;
     private Player p;
-    private JailRelatedAction j;
-    private PropertyRelatedAction y;
 
     @Test
+    @DisplayName("Test update money when the change is positive.")
     void updateMoneyTest() {
-        int fine = 150;
-        int m1 = p.getMoney() - fine;
-        if (p.getInJailRound()>3){
-            a.updateMoney(p);
-            int m2 = p.getMoney();
-            Assertions.assertEquals(m1,m2);
-        }
-
+        int original = 800;
+        int change = 200;
+        p.setMoney(original);
+        a.updateMoney(p,change);
+        Assertions.assertEquals(original-change,p.getMoney());
     }
 
     @Test
+    @DisplayName("Test update money when the change is negative")
+    void updateMoneyTest2(){
+        int original = 800;
+        int change = -150;
+        p.setMoney(original);
+        a.updateMoney(p,change);
+        Assertions.assertEquals(original-change,p.getMoney());
+    }
+
+
+    @Test
+    @DisplayName("Test update position")
     void updatePositionTest() {
+        int original = 2;
+        int totalDice = 3;
+        p.setPosition(original);
+        a.updatePosition(p,original+totalDice);
+        Assertions.assertEquals(5,p.getPosition());
     }
 }
