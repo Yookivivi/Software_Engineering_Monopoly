@@ -42,7 +42,7 @@ public class PlayerTest {
             assertEquals(i, player.getInJailRound(), "Player's in-jail round should be " + i);
         }
 
-        Throwable exception;
+        Throwable exception; // test exception when setting in-jail round
         exception = assertThrows(IllegalArgumentException.class, () -> player.setInJailRound(-1));
         assertEquals("In-jail round must be positive or zero", exception.getMessage());
         exception = assertThrows(IllegalArgumentException.class, () -> player.setInJailRound(4));
@@ -74,7 +74,7 @@ public class PlayerTest {
         player.setPosition(19);
         assertEquals(19, player.getPosition(), "Player's position should be 19");
 
-        Throwable exception;
+        Throwable exception; // test exception when setting player's position
         exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(-1));
         assertEquals("Position must be positive or zero", exception.getMessage());
         exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(20));
@@ -96,6 +96,6 @@ public class PlayerTest {
     public void testPropertyList(){
         Property property = new Property();
         player.setPropertyList(property);
-        assertSame(property, player.getPropertyList(), "Player's property list should work");
+        assertSame(property, player.getPropertyList(), "Player's property list should work"); // test whether the property list is consistent
     }
 }
