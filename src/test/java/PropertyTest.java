@@ -11,7 +11,7 @@ public class PropertyTest {
     }
 
     @Test
-    @DisplayName("Test property update")
+    @DisplayName("Test property update function")
     public void testPropertyUpdate(){
         property.updateProperty(1, 5); // add land 5
         property.updateProperty(1, 3); // add land 3
