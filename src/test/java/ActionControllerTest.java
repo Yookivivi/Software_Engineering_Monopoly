@@ -13,8 +13,11 @@ class ActionControllerTest {
     void updateMoneyTest() {
         int original = 800;
         int change = 200;
+        // set an original money for player
         p.setMoney(original);
+        //update money
         a.updateMoney(p,change);
+        //check whether the current money is equal to the difference between the original and the change money
         Assertions.assertEquals(original-change,p.getMoney());
     }
 
