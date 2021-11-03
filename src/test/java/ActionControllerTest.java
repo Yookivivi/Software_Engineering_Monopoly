@@ -37,7 +37,9 @@ class ActionControllerTest {
     void updatePositionTest() {
         int original = 2;
         int totalDice = 3;
+        //set original position for the player
         p.setPosition(original);
+        //update the player's position with its original position and the number on two dices
         a.updatePosition(p,original+totalDice);
         Assertions.assertEquals(5,p.getPosition());
     }
