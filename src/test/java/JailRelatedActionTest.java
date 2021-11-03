@@ -27,7 +27,7 @@ class JailRelatedActionTest {
         d.dice1 = 3;
         d.dice2 = 3;
         j.updateInJail(p);
-        // dice1=dice2, player goes out of jail
+        // dice1 is equal to dice2, the player can get out of jail
         Assertions.assertFalse(p.getInJail());
     }
 
@@ -40,6 +40,7 @@ class JailRelatedActionTest {
         d.dice1 = 3;
         d.dice2 = 2;
         j.updateInJail(p);
+        // dice1 is not equal to dice2, the player is still in jail
         Assertions.assertTrue(p.getInJail());
     }
 
