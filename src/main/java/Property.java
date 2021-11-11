@@ -1,13 +1,19 @@
-public class Property {
-    private int landNum;//the number of lands
-    private int[] lands;// the indexes of lands owned by the player
+import java.util.ArrayList;
 
-    public void updateProperty(int mode, int position){};//change the property list
-    public void printProperty(){};//print the property list
+public class Property {
+    private ArrayList<Integer> landList = new ArrayList<>();// the indexes of lands owned by the player
+
+    // constructor
+    public Property(){}
+
+    public void updateProperty(int mode, int position){ // change the property list
+        if (mode == 1) landList.add(position);          // mode = 1(add), mode = 0(remove)
+        else landList.remove(position);
+    }
     public int getLandNum(){
-        return landNum;
-    };
-    public int[] getProperty(){
-        return lands;
-    };
+        return landList.size();
+    }
+    public ArrayList<Integer> getLandList(){
+        return landList;
+    }
 }
