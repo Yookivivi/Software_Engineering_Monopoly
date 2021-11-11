@@ -1,50 +1,71 @@
 public class Player {
     private int id;
     private String name;
-    private boolean inJail;// whether the player is in jail
-    private int inJailRound;// the round that the player be in the jail
-    private int money;
-    private int position;
-    private boolean isOut;// whether the player is out of the game
-    private Property propertyList;// player's property List
+    private boolean inJail = false;// whether the player is in jail
+    private int inJailRound = 0;// the round that the player be in the jail
+    private int money = 0;
+    private int position = 0;
+    private boolean isOut = false;// whether the player is out of the game
+    private Property propertyList = new Property(); // property owned by the player
 
-    public void setId(int id){};
+    // constructor
+    public Player(){}
+
+    public void setId(int id){
+        this.id = id;
+    }
+
     public int getId(){
-        return id;
+        return this.id;
     }
 
-    public void setName(String name){};
+    public void setName(String name){
+        this.name = name;
+    }
     public String getName(){
-        return name;
+        return this.name;
     }
 
-    public void setInJail(boolean inJail){};
+    public void setInJail(boolean inJail){
+        this.inJail = true;
+    }
     public boolean getInJail(){
-        return inJail;
+        return this.inJail;
     }
 
-    public void setInJailRound(int round){};
+    public void setInJailRound(int round){
+        this.inJailRound = round;
+    }
     public int getInJailRound(){
-        return inJailRound;
-    };
+        return this.inJailRound;
+    }
 
-    public void setMoney(int money){};
+    public void setMoney(int money){
+        this.money = money;
+    }
     public int getMoney(){
-        return money;
+        return this.money;
     }
 
-    public void setPosition(int position){};
+    public void setPosition(int position){
+        this.position = position;
+    }
     public int getPosition(){
-        return position;
+        return this.position;
     }
 
-    public void setIsOut(boolean isOut){};
+    public void setIsOut(boolean isOut){
+        this.isOut = isOut;
+    }
     public boolean getIsOut(){
-        return isOut;
+        return this.isOut;
     }
 
-    public void setPropertyList(Property p){};
+    public void setPropertyList(int mode, int position){
+        this.propertyList.updateProperty(mode, position);
+    }
     public Property getPropertyList(){
-        return propertyList;
+        return this.propertyList;
     }
 }
+
