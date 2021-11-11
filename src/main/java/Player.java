@@ -3,7 +3,7 @@ public class Player {
     private String name;
     private boolean inJail = false;// whether the player is in jail
     private int inJailRound = 0;// the round that the player be in the jail
-    private int money = 0;
+    private int money = 1500;
     private int position = 0;
     private boolean isOut = false;// whether the player is out of the game
     private Property propertyList = new Property(); // property owned by the player
