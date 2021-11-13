@@ -20,7 +20,8 @@ class PropertyRelatedActionTest {
     @DisplayName("Test buy land and update property list")
     void buylandTest() {
         //set property of player 1
-        p1.setPropertyList(1,7);
+        //??????
+        p1.setPropertyList(pro);
         //add original property
         pro.updateProperty(1,2);
         pro.updateProperty(1,3);
@@ -36,7 +37,8 @@ class PropertyRelatedActionTest {
     @Test
     void updatePropertyTest() {
         //set property of player 2
-        p2.setPropertyList(1,2);
+        //?????
+        p2.setPropertyList(pro2);
         //add original property
         pro2.updateProperty(1,7);
         pro2.updateProperty(1,8);
