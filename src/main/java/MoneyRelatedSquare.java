@@ -1,3 +1,6 @@
 abstract class MoneyRelatedSquare extends Square{
-    public void updateMoney(){}; // change the player's money
+    /**
+     * update the player's Money
+     */
+    public void updateMoney(Player p){}; // change the player's money
 }
