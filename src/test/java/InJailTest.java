@@ -15,7 +15,13 @@ class InJailTest {
         ij = new InJail();
         p = new Player();
     }
+    @Test
+    @DisplayName("Test the takeEffect of InJail")
+    public void testInJailPosition(){
+        Assertions.assertEquals(0,ij.takeEffect(p));
+    }
 
+    /*
     @Test
     @DisplayName("Test the getPosition of InJail")
     public void testInJailPosition(){
@@ -28,5 +34,5 @@ class InJailTest {
         ij.updateInJail(p);
         Assertions.assertFalse(p.getInJail());//whether the player has got out of the jail
     }
-
+    */
 }

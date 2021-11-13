@@ -6,10 +6,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FreeParkingTest {
     @Test
-    @DisplayName("Test the getPosition of FreeParking")
-    public void parkingPositionTest(){
+    @DisplayName("Test the takeEffect of FreeParking")
+    public void parkingTest(){
+        Player p = new Player();
         FreeParking free = new FreeParking();
-        Assertions.assertEquals(11,free.getPosition());
+        Assertions.assertEquals(0,free.takeEffect(p));
     }
 
 }

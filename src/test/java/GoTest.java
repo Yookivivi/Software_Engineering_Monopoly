@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GOTest {
-    private GO go;
+class GoTest {
+    private Go go;
     private Player p;
     @BeforeEach
     @DisplayName("The initialization of the GO test")
     public void setUp(){
-        go = new GO();
+        go = new Go();
         p = new Player();
     }
 
