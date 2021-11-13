@@ -28,7 +28,7 @@ class PropertyRelatedActionTest {
         l1.position = 5;
         p1.setPosition(l1.position);
         y1.buyland(p1,l1);
-        y1.updateProperty(p1);
+        y1.updateProperty(p1,l1);
         Assertions.assertEquals(p1.getId(),l1.getOwner());
         Assertions.assertSame(pro,p1.getPropertyList());
     }
@@ -44,7 +44,7 @@ class PropertyRelatedActionTest {
         l2.position = 10;
         p2.setPosition(l2.position);
         y2.buyland(p2, l2);
-        y2.updateProperty(p2);
+        y2.updateProperty(p2,l2);
         Assertions.assertEquals(p2.getId(),l2.getOwner());
         Assertions.assertSame(pro2,p2.getPropertyList());
     }
