@@ -45,9 +45,9 @@ public class PlayerTest {
 
         Throwable exception; // test exception when setting in-jail round
         exception = assertThrows(IllegalArgumentException.class, () -> player.setInJailRound(-1));
-        assertEquals("In-jail round must be positive or zero", exception.getMessage());
+        assertEquals("In-jail round is invalid.", exception.getMessage());
         exception = assertThrows(IllegalArgumentException.class, () -> player.setInJailRound(4));
-        assertEquals("In-jail round must be smaller than 4", exception.getMessage());
+        assertEquals("In-jail round is invalid.", exception.getMessage());
     }
 
     @Test
@@ -77,9 +77,9 @@ public class PlayerTest {
 
         Throwable exception; // test exception when setting player's position
         exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(-1));
-        assertEquals("Position must be positive or zero", exception.getMessage());
+        assertEquals("Position is invalid.", exception.getMessage());
         exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(20));
-        assertEquals("Position must not exceed 19", exception.getMessage());
+        assertEquals("Position is invalid.", exception.getMessage());
     }
 
     @Test
