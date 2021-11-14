@@ -1,7 +1,13 @@
 package Model;
 
+import java.io.*;
+import Controller.GameController;
+import View.*;
 
 public class Game {
+    private GameView view;
+    private GameController controller;
+    
     public int playerNum; //the number of players
     public int currentRound; //current round
     public int[] currentPlayer; //
@@ -26,9 +32,35 @@ public class Game {
         currentPlayer[id-1]=id;
     };//to create the player and add him/her to the players
 
-    public void loadGame(){};//to load a game
+    // new
+    public Game loadGame(File file){
+        try{
+            ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(file));
+            Game game = (Game)objIn.readObject();
+            return game;
+        } catch(IOException | ClassNotFoundException e) {
+            view.printLoadFailMessage();
+            e.printStackTrace();
+        }
+        return controller.loadGameController();
+    }
 
-    public void saveGame(){};//to save a game
+    // new
+    public void saveGame(String name){
+        File file = new File(name);
+        FileOutputStream out;
+        try{
+            ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream(file));
+            objOut.writeObject(this);
+            objOut.flush();
+            objOut.close();
+            view.printSaveSuccessfullyMessage();
+        } catch (IOException e) {
+            view.printSaveFailMessage();
+            e.printStackTrace();
+            controller.saveGameController();
+        }
+    }
 
     public void takeTurn(int i){
         Player player=players[currentPlayer[i]-1];
