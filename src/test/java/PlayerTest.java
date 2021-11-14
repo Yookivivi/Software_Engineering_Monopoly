@@ -92,11 +92,21 @@ public class PlayerTest {
         assertFalse(player.getIsOut(), "Player should not be out");
     }
 
+    // 11/14/22:13
     @Test
     @DisplayName("Test player's property list")
     public void testPropertyList(){
-        Property property = new Property();
-       // player.setPropertyList(property);
-        assertSame(property, player.getPropertyList(), "Player's property list should work"); // test whether the property list is consistent
+        player.setPropertyList(1, 1); // add land 1
+        player.setPropertyList(1, 2); // add land 2
+        player.setPropertyList(1, 3); // add land 3
+        assertEquals(player.getPropertyList().getLandNum(), 3);
+        assertTrue(player.getPropertyList().getLandList().contains(1));
+        assertTrue(player.getPropertyList().getLandList().contains(2));
+        assertTrue(player.getPropertyList().getLandList().contains(3));
+
+        player.setPropertyList(0, 1); // remove land 1
+        player.setPropertyList(0, 2); // remove land 2
+        assertEquals(player.getPropertyList().getLandNum(), 1);
+        assertTrue(player.getPropertyList().getLandList().contains(3));
     }
 }
