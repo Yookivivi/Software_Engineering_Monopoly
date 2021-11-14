@@ -16,6 +16,8 @@ public class Game {
     public void startGame(int input_num){
         board=new Board();
         playerNum=input_num;
+        players=new Player[input_num];
+        currentPlayer=new int[input_num];
     };//to start a new game
 
     public void addNewPlayer(int id, String name){
