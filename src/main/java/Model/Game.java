@@ -32,7 +32,7 @@ public class Game {
         currentPlayer[id-1]=id;
     };//to create the player and add him/her to the players
 
-    // new
+    // 11/14/21:39
     public Game loadGame(File file){
         try{
             ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(file));
@@ -43,11 +43,11 @@ public class Game {
             e.printStackTrace();
         }
         return controller.loadGameController();
-    }
+    };// to load a game
 
-    // new
+    // 11/14/21:10
     public void saveGame(String name){
-        File file = new File(name);
+        File file = new File("save/"+name+".txt");
         FileOutputStream out;
         try{
             ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream(file));
@@ -60,7 +60,7 @@ public class Game {
             e.printStackTrace();
             controller.saveGameController();
         }
-    }
+    };// to save game
 
     public void takeTurn(int i){
         Player player=players[currentPlayer[i]-1];
