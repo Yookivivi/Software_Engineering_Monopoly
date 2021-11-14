@@ -14,6 +14,7 @@ public class GameController {
         this.gameView = gameView;
     }
 
+    // new
     public void choose_begin_way(){//choose the way that begin game
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
@@ -27,7 +28,7 @@ public class GameController {
             startGameController();
         }
         else{
-            game.loadGame();
+            loadGameController();
         }
     }
 
@@ -55,24 +56,45 @@ public class GameController {
         takeTurnController();
     }
 
+    // new
     public void saveGameController(){
+        gameView.printSaveGaveMessage();
         Scanner S=new Scanner(System.in);
-        String name=S.toString();
-        while(name!="y" && name!="n"){
+        String choice=S.toString();
+        while(choice!="y" && choice!="n"){
             gameView.printInvalidChoiceMessage();
         }
-        if(name=="y"){
-            game.saveGame();
+        if(choice=="y"){
+            gameView.printSaveNameMessage();
+            S=new Scanner(System.in);
+            String name=S.toString();
+            game.saveGame(name);
         }
     }
 
+    // new
+    public Game loadGameController(){
+        gameView.printLoadGameMessage();
+        Scanner S=new Scanner(System.in);
+        String path=S.toString();
+        File file=new File(path);
+        while(!file.exists()){
+            gameView.printFileNotFoundMessage();
+            gameView.printLoadGameMessage();
+            S=new Scanner(System.in);
+            path=S.toString();
+            file=new File(path);
+        }
+        return game.loadGame(file);
+    }
+
+    // new
     public void takeTurnController(){
         while(!game.isEnd){
             int current_playerNum=game.currentPlayer.length;
             for(int i=0; i<current_playerNum; i++){
                 gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer[i]-1].getId(),game.players[game.currentPlayer[i]-1].getName());
                 game.takeTurn(i);
-                gameView.printSaveGaveMessage();
                 saveGameController();
                 game.judgeIsEnd();
                 if(game.isEnd){
