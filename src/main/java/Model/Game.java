@@ -29,7 +29,7 @@ public class Game {
     public void saveGame(){};//to save a game
 
     public void takeTurn(int i){
-        Player player=players[currentPlayer[i]];
+        Player player=players[currentPlayer[i]-1];
 
 
     };//to do the next turn

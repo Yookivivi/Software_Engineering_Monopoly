@@ -1,8 +1,7 @@
-package test.java;//import org.junit.Test;
-import main.java.Game;
-import main.java.Player;
+//import org.junit.Test;
 import org.junit.jupiter.api.*;
 import java.io.*;
+import Model.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 

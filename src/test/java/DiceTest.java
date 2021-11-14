@@ -2,10 +2,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import Model.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DiceTest {
-    private Dice dice;
+    private Dice dice = new Dice();
 
     @Test
     @DisplayName("Test the dice range")

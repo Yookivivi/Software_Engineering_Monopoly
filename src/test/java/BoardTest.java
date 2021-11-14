@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+import Model.*;
 class BoardTest {
     @Test
     @DisplayName("Test the construction of the board")

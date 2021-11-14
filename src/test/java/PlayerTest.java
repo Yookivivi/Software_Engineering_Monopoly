@@ -2,7 +2,7 @@
 import Model.Property;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-
+import Model.*;
 public class PlayerTest {
     Player player;
 
@@ -96,7 +96,7 @@ public class PlayerTest {
     @DisplayName("Test player's property list")
     public void testPropertyList(){
         Property property = new Property();
-        player.setPropertyList(property);
+       // player.setPropertyList(property);
         assertSame(property, player.getPropertyList(), "Player's property list should work"); // test whether the property list is consistent
     }
 }

@@ -11,7 +11,14 @@ public class Player {
     private Property propertyList = new Property(); // property owned by the player
 
     // constructor
-    public Player(){}
+    public Player(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+    public Player(){
+        this.id = id;
+        this.name = name;
+    }
 
     public void setId(int id){
         this.id = id;

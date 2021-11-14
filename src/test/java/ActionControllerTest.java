@@ -2,6 +2,7 @@ import Model.ActionController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import Model.*;
 
 class ActionControllerTest {
     private ActionController a;
