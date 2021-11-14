@@ -10,7 +10,7 @@ public class PropertyTest {
     void setup(){
         property = new Property();
     }
-/*
+
     @Test
     @DisplayName("Test property update function")
     public void testPropertyUpdate(){
@@ -20,10 +20,8 @@ public class PropertyTest {
         property.updateProperty(1, 13); // add land 13
         property.updateProperty(0, 13); // remove land 13
         assertEquals(3, property.getLandNum(), "Number of property should be 3");
-        assertEquals(3, property.getProperty()[0], "First land is at 3");
-        assertEquals(5, property.getProperty()[1], "Second land is at 5");
-        assertEquals(10, property.getProperty()[2], "Second land is at 10");
+        assertEquals(5, property.getLandList().get(0), "First land is at 5");
+        assertEquals(3, property.getLandList().get(1), "Second land is at 3");
+        assertEquals(10, property.getLandList().get(2), "Second land is at 10");
     }
-
- */
 }
