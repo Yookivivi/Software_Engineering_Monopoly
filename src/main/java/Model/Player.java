@@ -15,10 +15,7 @@ public class Player {
         this.id = id;
         this.name = name;
     }
-    public Player(){
-        this.id = id;
-        this.name = name;
-    }
+    public Player(){}
 
     public void setId(int id){
         this.id = id;
