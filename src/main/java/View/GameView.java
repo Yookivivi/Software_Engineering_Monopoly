@@ -47,9 +47,14 @@ public class GameView {
         System.out.println("Please enter the path of game file you want to load: ");
     }
 
-    // new
-    public void printFileNotFoundMessage(){
-        System.out.println("File not found. Please try again.\n");
+    // 11/14/21:25
+    public void printSaveMessage(int index, String fileName){
+        System.out.println(index+". "+fileName+"\n");
+    }
+    
+    // 11/14/21:28
+    public void printLoadChooseMessage(){
+        System.out.println("Please enter the number of game you want to load: ");
     }
 
     // new
