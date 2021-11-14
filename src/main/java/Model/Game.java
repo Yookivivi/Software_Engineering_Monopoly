@@ -37,6 +37,7 @@ public class Game {
         try{
             ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(file));
             Game game = (Game)objIn.readObject();
+            view.printLoadSuccessfulMessage();
             return game;
         } catch(IOException | ClassNotFoundException e) {
             view.printLoadFailMessage();
