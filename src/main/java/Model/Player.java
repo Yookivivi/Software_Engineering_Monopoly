@@ -15,7 +15,8 @@ public class Player {
         this.id = id;
         this.name = name;
     }
-    public Player(){}
+    public Player(){
+    }
 
     public void setId(int id){
         this.id = id;
@@ -33,14 +34,17 @@ public class Player {
     }
 
     public void setInJail(boolean inJail){
-        this.inJail = true;
+        this.inJail = inJail;
     }
     public boolean getInJail(){
         return this.inJail;
     }
 
     public void setInJailRound(int round){
-        this.inJailRound = round;
+        if (round < 0 || round > 3){
+            throw new IllegalArgumentException("In-jail round is invalid.");
+        }
+        else this.inJailRound = round;
     }
     public int getInJailRound(){
         return this.inJailRound;
@@ -54,7 +58,10 @@ public class Player {
     }
 
     public void setPosition(int position){
-        this.position = position;
+        if (position < 0 || position > 19){
+            throw new IllegalArgumentException("Position is invalid.");
+        }
+        else this.position = position;
     }
     public int getPosition(){
         return this.position;
