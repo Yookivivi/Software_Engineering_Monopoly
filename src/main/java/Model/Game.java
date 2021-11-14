@@ -4,7 +4,7 @@ import java.io.*;
 import Controller.GameController;
 import View.*;
 
-public class Game {
+public class Game implements Serializable{
     private GameView view;
     private GameController controller;
     
