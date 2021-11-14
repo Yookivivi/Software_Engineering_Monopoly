@@ -26,6 +26,41 @@ public class GameView {
         System.out.println("Do you want to save the game now?\n");
         System.out.println("Press y for yes and n for no:");
     }
+    
+    // new
+    public void printSaveNameMessage(){
+        System.out.println("Please enter the file name: ");
+    }
+
+    // new
+    public void printSaveSuccessfullyMessage(){
+        System.out.println("Game saved successfully.\n");
+    }
+
+    // new
+    public void printSaveFailMessage(){
+        System.out.println("Game save failed.\n");
+    }
+
+    // new
+    public void printLoadGameMessage(){
+        System.out.println("Please enter the path of game file you want to load: ");
+    }
+
+    // new
+    public void printFileNotFoundMessage(){
+        System.out.println("File not found. Please try again.\n");
+    }
+
+    // new
+    public void printLoadSuccessfulMessage(){
+        System.out.println("Game loaded successfully.\n");
+    }
+
+    // new
+    public void printLoadFailMessage(){
+        System.out.println("Game load failed.\n");
+    }
 
     public void printAddNewPlayerMessage(int player_id){
         System.out.println("Now please name the player with id "+player_id+" : ");
