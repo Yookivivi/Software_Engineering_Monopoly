@@ -14,17 +14,17 @@ public class GameController {
         this.gameView = gameView;
     }
 
-    // new
+    // 11/14/21:58
     public void choose_begin_way(){//choose the way that begin game
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
         String input_num=S.toString();
-        while(input_num!="1" && input_num !="2"){
+        while(!input_num.equals("1") && !input_num.equals("2")){
             gameView.printInvalidChoiceMessage();
             S=new Scanner(System.in);
             input_num=S.toString();
         }
-        if(input_num=="1"){
+        if(input_num.equals("1")){
             startGameController();
         }
         else{
@@ -56,37 +56,66 @@ public class GameController {
         takeTurnController();
     }
 
-    // new
+    // 11/14/21:49
     public void saveGameController(){
         gameView.printSaveGaveMessage();
         Scanner S=new Scanner(System.in);
         String choice=S.toString();
-        while(choice!="y" && choice!="n"){
+        while(!choice.equals("y") && !choice.equals("n")){
             gameView.printInvalidChoiceMessage();
+            S = new Scanner(System.in);
+            choice = S.toString();
         }
-        if(choice=="y"){
+        if(choice.equals("y")){
             gameView.printSaveNameMessage();
             S=new Scanner(System.in);
-            String name=S.toString();
-            game.saveGame(name);
+            String name=S.toString(); // name should not include format (e.g. .txt)
+            File file = new File("save/"+name+".txt");
+            if (file.exists()){
+                gameView.printSaveOverwriteMessage();
+                S = new Scanner(System.in);
+                String overwriteChoice = S.toString();
+                while(!overwriteChoice.equals("y") && !overwriteChoice.equals("n")){
+                    gameView.printInvalidChoiceMessage();
+                    S = new Scanner(System.in);
+                    overwriteChoice = S.toString();
+                }
+                if (overwriteChoice.equals("y")){
+                    game.saveGame(name);
+                }
+                else{
+                    saveGameController();
+                }
+            }
+            else{
+                game.saveGame(name);
+            }
         }
     }
 
-    // new
+    // 11/14/21:33
     public Game loadGameController(){
         gameView.printLoadGameMessage();
-        Scanner S=new Scanner(System.in);
-        String path=S.toString();
-        File file=new File(path);
-        while(!file.exists()){
-            gameView.printFileNotFoundMessage();
-            gameView.printLoadGameMessage();
-            S=new Scanner(System.in);
-            path=S.toString();
-            file=new File(path);
+        File dir = new File("save");
+        File[] fs = dir.listFiles();
+
+        int index = 1;
+        for(File f:fs){
+            gameView.printSaveMessage(index, f.getName());
+            index++;
         }
-        return game.loadGame(file);
+        gameView.printLoadChooseMessage();
+        Scanner s = new Scanner(System.in);
+        int choice = s.nextInt();
+
+        while(choice < 1 || choice > fs.length){
+            gameView.printInvalidChoiceMessage();
+            s = new Scanner(System.in);
+            choice = s.nextInt();
+        }
+        return game.loadGame(fs[choice-1]);
     }
+
 
     // new
     public void takeTurnController(){
