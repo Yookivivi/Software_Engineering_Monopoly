@@ -14,19 +14,32 @@ public class GameView {
         System.out.println("Please enter a valid choice again: ");
     }
 
-    public void printStartGameMessage(){
-        System.out.println("\n\nPlease enter the number of players(any number from 2 to 6): \n");
-        System.out.println("You have 2 ways to start the game, they are:\n");
-        System.out.println("1. Directly start a new game.\n");
-        System.out.println("2. Load a previous version game.\n\n");
-        System.out.println("Please enter your choice by number (1/2): ");
+    public void printContinueMessage(){
+        System.out.println("Enter m to go back to menu and e to exit: ");
     }
 
-    public void printSaveGaveMessage(){
-        System.out.println("Do you want to save the game now?\n");
-        System.out.println("Press y for yes and n for no:");
+    public void printEndGameMessage(){
+        System.out.println("Thank you for playing our game!\n");
+        System.out.println(" ________  __                            __              __      __                  \n" +
+                "/        |/  |                          /  |            /  \\    /  |                 \n" +
+                "$$$$$$$$/ $$ |____    ______   _______  $$ |   __       $$  \\  /$$/______   __    __ \n" +
+                "   $$ |   $$      \\  /      \\ /       \\ $$ |  /  |       $$  \\/$$//      \\ /  |  /  |\n" +
+                "   $$ |   $$$$$$$  | $$$$$$  |$$$$$$$  |$$ |_/$$/         $$  $$//$$$$$$  |$$ |  $$ |\n" +
+                "   $$ |   $$ |  $$ | /    $$ |$$ |  $$ |$$   $$<           $$$$/ $$ |  $$ |$$ |  $$ |\n" +
+                "   $$ |   $$ |  $$ |/$$$$$$$ |$$ |  $$ |$$$$$$  \\           $$ | $$ \\__$$ |$$ \\__$$ |\n" +
+                "   $$ |   $$ |  $$ |$$    $$ |$$ |  $$ |$$ | $$  |          $$ | $$    $$/ $$    $$/ \n" +
+                "   $$/    $$/   $$/  $$$$$$$/ $$/   $$/ $$/   $$/           $$/   $$$$$$/   $$$$$$/  \n" +
+                "                                                                                     ");
     }
-    
+
+    public void printStartGameMessage(){
+        System.out.println("\n\nPlease enter the number of players(any number from 2 to 6): \n");
+    }
+
+    public void printTurnEndMessage(){
+        System.out.println("Enter s to save, e to exit and c to continue: ");
+    }
+
     // new
     public void printSaveNameMessage(){
         System.out.println("Please enter the file name: ");
@@ -42,16 +55,22 @@ public class GameView {
         System.out.println("Game save failed.\n");
     }
 
+    // 11/14/21:43
+    public void printSaveOverwriteMessage(){
+        System.out.println("The file already exists. Do you want to overwrite this file?\n");
+        System.out.println("Press y for yes and n for no: ");
+    }
+
     // new
     public void printLoadGameMessage(){
-        System.out.println("Please enter the path of game file you want to load: ");
+        System.out.println("Which of the following games do you want to load? \n");
     }
 
     // 11/14/21:25
     public void printSaveMessage(int index, String fileName){
         System.out.println(index+". "+fileName+"\n");
     }
-    
+
     // 11/14/21:28
     public void printLoadChooseMessage(){
         System.out.println("Please enter the number of game you want to load: ");
@@ -92,7 +111,7 @@ public class GameView {
             System.out.println("Congratulations!!!\n\n");
         }
     };
-    
+
     public void printWelcomeMessage() {
         System.out.println("        __       __   ______   __    __   ______   _______    ______   __    __      __ \n" +
                 "       /  \\     /  | /      \\ /  \\  /  | /      \\ /       \\  /      \\ /  |  /  \\    /  |\n" +
@@ -106,6 +125,5 @@ public class GameView {
                 "                                                                                        \n" +
                 "                                                                                        \n" +
                 "                                                                                        ");
-        System.out.println("* Welcome to our monopoly game!");
     }
 }
