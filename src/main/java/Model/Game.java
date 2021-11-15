@@ -9,9 +9,9 @@ public class Game implements Serializable{
     private GameController controller;
     
     public int playerNum; //the number of players
-    public int currentRound; //current round
+    public int currentRound = 0; //current round
     public int[] currentPlayer; //
-    public Boolean isEnd; 
+    public Boolean isEnd = false; 
     public Player[] players; //an array for all the players
     public Board board;//game board
 
@@ -68,6 +68,7 @@ public class Game implements Serializable{
 
 
     };//to do the next turn
+    
     public void judgeIsEnd(){
         if(currentPlayer.length==1){
             isEnd=true;
