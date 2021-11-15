@@ -15,7 +15,7 @@ public class GameController {
     }
 
     // 11/14/21:58
-    public void choose_begin_way(){//choose the way that begin game
+    public void chooseBeginWay(){//choose the way that begin game
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
         String input_num=S.toString();
