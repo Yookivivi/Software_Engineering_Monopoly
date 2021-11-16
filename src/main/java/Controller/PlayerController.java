@@ -19,6 +19,8 @@ public class PlayerController {
     public void updateIsOut(){
         if (player.getMoney()<=0){
             player.setIsOut(true);
+
         }
+
     }
 }

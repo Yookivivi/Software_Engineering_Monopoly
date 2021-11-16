@@ -70,7 +70,7 @@ public class Game implements Serializable{
 
     public void takeTurn(){
         //Player player=players[currentPlayers[i]-1];
-        Player player=players[currentPlayer];
+        Player player=players[currentPlayer-1];
         PlayerController playerController=new PlayerController(player);
         playerController.startTurnController();
         if(player.getIsOut()){
@@ -102,7 +102,7 @@ public class Game implements Serializable{
             }
             else{
                 int index= Arrays.binarySearch(currentPlayers, currentPlayer);
-                currentPlayer=currentPlayers[index++];
+                currentPlayer=currentPlayers[index+1];
             }
         }
 

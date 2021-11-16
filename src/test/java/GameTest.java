@@ -49,33 +49,68 @@ public class GameTest{
     @Test
     @DisplayName("Test if the game could ask the players take turns to play the game.")
     public void testTakeTurn(){
-        /*game.currentRound=1;
-        for(int i=0; i<50; i++){
-            if(!game.isEnd){
-                game.takeTurn(i);
-                assertEquals(i % (game.currentPlayer.length) + 1, game.currentRound,"The current round should be "+game.currentRound);
-            }
-        }*/
+        game.currentRound=1;
+        game.players=new Player[2];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.currentPlayers=new int[2];
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=2;
+        game.currentPlayer=1;
+
+        game.takeTurn();
+        assertEquals(2, game.currentPlayer,"It is successfully go to the next part");
+
     }
 
     @Test
     @DisplayName("Test if the game could correctly judge if the game has been ended")
-    public void testJudgeIsEnd(){
-        /*
+    public void testJudgeIsEnd1(){
+        game.players=new Player[3];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.players[2]=new Player(3,"C");
+
+        game.currentPlayers=new int[2];
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=2;
         game.currentRound=100;
         game.judgeIsEnd();
-        assertTrue(game.isEnd, "Game should be end");
 
-        game.currentPlayer[0]=1;
+        assertTrue(game.isEnd, "Game should be end");
+    }
+
+    @Test
+    @DisplayName("Test if the game could correctly judge if the game has been ended")
+    public void testJudgeIsEnd2(){
+        game.players=new Player[3];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.players[2]=new Player(3,"C");
+
+        game.currentPlayers=new int[1];
+        game.currentPlayers[0]=1;
+        game.currentRound=20;
         game.judgeIsEnd();
         assertTrue(game.isEnd, "Game should be end");
 
-        game.currentPlayer[0]=1;
-        game.currentRound=97;
-        game.currentPlayer[1]=1;
+    }
+
+    @Test
+    @DisplayName("Test if the game could correctly judge if the game has been ended")
+    public void testJudgeIsEnd3(){
+        game.players=new Player[3];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.players[2]=new Player(3,"C");
+
+        game.currentPlayers=new int[2];
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=2;
+        game.currentRound=20;
         game.judgeIsEnd();
+
         assertFalse(game.isEnd, "Game should be continue");
-        */
     }
 
 
