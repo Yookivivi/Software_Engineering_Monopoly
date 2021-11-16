@@ -5,7 +5,9 @@ import View.GameView;
 //import main.java.Game;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
+
 
 public class GameController {
     private Game game;
@@ -67,7 +69,7 @@ public class GameController {
             Scanner S=new Scanner(System.in);
             String name=S.toString();
             game.addNewPlayer(i+1, name);
-            gameView.printSuccessfullyAddNewPlayerMessage(game.currentPlayer[i], game.players[i].getName());
+            gameView.printSuccessfullyAddNewPlayerMessage(game.currentPlayers[i], game.players[i].getName());
         }
     }
 
@@ -142,10 +144,13 @@ public class GameController {
     public void takeTurnController(){
         here:
         while(!game.isEnd){
-            int current_playerNum=game.currentPlayer.length;
-            for(int i=0; i<current_playerNum; i++){ // how to keep track of current player
-                gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer[i]-1].getId(),game.players[game.currentPlayer[i]-1].getName());
-                game.takeTurn(i);
+            int current_playerNum=game.currentPlayers.length;
+            gameView.printTakeTurnMessage(game.currentRound);
+            while (game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
+            //for(int i=0; i<current_playerNum; i++){ // how to keep track of current player
+                //gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer].getId(),game.players[game.currentPlayer].getName());
+                game.takeTurn();
+
                 int exit = saveGameController();
                 if (exit == 0){
                     break here;
@@ -154,6 +159,7 @@ public class GameController {
                 if(game.isEnd){
                     break here;
                 }
+                current_playerNum=game.currentPlayers.length;
             }
             game.currentRound++;
         }
@@ -161,6 +167,6 @@ public class GameController {
     }
 
     public void printWinnerController(){
-        gameView.printWinnerMessage(game.printWinner(), game.currentPlayer);
+        gameView.printWinnerMessage(game.printWinner(), game.currentPlayers);
     }
 }

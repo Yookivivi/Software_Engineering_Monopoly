@@ -94,9 +94,8 @@ public class GameView {
         System.out.println("* Successfully add the new player with id "+player_id+" and name "+name+"\n\n");
     }
 
-    public void printTakeTurnMessage(int round, int player_id, String name){
+    public void printTakeTurnMessage(int round){
         System.out.println("* Now it is the Round "+round+ ": \n");
-        System.out.println("* It is id "+player_id+", name "+name+": \n");
     }
     public void printWinnerMessage(String[] winners, int[] winnerids){
         int winner_num=winners.length;

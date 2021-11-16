@@ -27,8 +27,8 @@ public class GameTest{
         assertNotNull(game.players, "Game should include at least 1 player.");
         assertEquals(game.playerNum, game.players.length, "All the players should be added in this game.");
 
-        assertNotNull(game.currentPlayer, "Game should include at least 1 player.");
-        assertEquals(game.playerNum, game.currentPlayer.length, "All the players should be added in this game.");
+        assertNotNull(game.currentPlayers, "Game should include at least 1 player.");
+        assertEquals(game.playerNum, game.currentPlayers.length, "All the players should be added in this game.");
 
     }
 
@@ -39,7 +39,7 @@ public class GameTest{
         int id=1;
         String name="Alice";
         game.players=new Player[1];
-        game.currentPlayer=new int[1];
+        game.currentPlayers=new int[1];
         game.addNewPlayer(id, name);
         assertEquals(id, game.players[0].getId(),"The first player should be correctly added");
         assertEquals(name, game.players[0].getName(),"The first player should be correctly added");
@@ -83,7 +83,7 @@ public class GameTest{
     @DisplayName("Test if the game could correctly print the winner")
     public void testPrintWinner(){
         game.players=new Player[3];
-        game.currentPlayer=new int[2];
+        game.currentPlayers=new int[2];
         Player player1=new Player(1, "Alice");
         Player player2=new Player(2, "Bob");
         Player player3=new Player(3, "Cindy");
@@ -91,8 +91,8 @@ public class GameTest{
         game.players[0]=player1;
         game.players[1]=player2;
         game.players[2]=player3;
-        game.currentPlayer[0]=1;
-        game.currentPlayer[1]=3;
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=3;
         String[] output=game.printWinner();
         assertEquals("Alice",output[0],"The winner 1 is correct!");
         assertEquals("Cindy",output[1],"The winner 2 is correct!");
