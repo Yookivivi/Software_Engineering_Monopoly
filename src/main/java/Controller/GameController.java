@@ -25,11 +25,11 @@ public class GameController {
     public String endGame(){
         gameView.printContinueMessage();
         Scanner s = new Scanner(System.in);
-        String choice = s.toString();
+        String choice = s.nextLine();
         while(!choice.equals("m") && !choice.equals("e")){
             gameView.printInvalidChoiceMessage();
             s = new Scanner(System.in);
-            choice = s.toString();
+            choice = s.nextLine();
         }
         if (choice.equals("e")){
             gameView.printEndGameMessage();
@@ -41,11 +41,11 @@ public class GameController {
     public String chooseBeginWay(){//choose the way that begin game
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
-        String input_num=S.toString();
+        String input_num=S.nextLine();
         while(!input_num.equals("1") && !input_num.equals("2")){
             gameView.printInvalidChoiceMessage();
             S=new Scanner(System.in);
-            input_num=S.toString();
+            input_num=S.nextLine();
         }
         return input_num;
     }
@@ -67,7 +67,7 @@ public class GameController {
         for(int i=0; i<input_num; i++){
             gameView.printAddNewPlayerMessage(i+1);
             Scanner S=new Scanner(System.in);
-            String name=S.toString();
+            String name=S.nextLine();
             game.addNewPlayer(i+1, name);
             gameView.printSuccessfullyAddNewPlayerMessage(game.currentPlayers[i], game.players[i].getName());
         }
@@ -77,25 +77,25 @@ public class GameController {
     public int saveGameController(){ // return 0: exit 1: continue
         gameView.printTurnEndMessage();
         Scanner S=new Scanner(System.in);
-        String choice=S.toString();
+        String choice=S.nextLine();
         while(!choice.equals("s") && !choice.equals("e") && !choice.equals("c")){
             gameView.printInvalidChoiceMessage();
             S = new Scanner(System.in);
-            choice = S.toString();
+            choice = S.nextLine();
         }
         if(choice.equals("s")){ // save game
             gameView.printSaveNameMessage();
             S=new Scanner(System.in);
-            String name=S.toString(); // name should not include format (e.g. .txt)
+            String name=S.nextLine(); // name should not include format (e.g. .txt)
             File file = new File("save/"+name+".txt");
             if (file.exists()){
                 gameView.printSaveOverwriteMessage();
                 S = new Scanner(System.in);
-                String overwriteChoice = S.toString();
+                String overwriteChoice = S.nextLine();
                 while(!overwriteChoice.equals("y") && !overwriteChoice.equals("n")){
                     gameView.printInvalidChoiceMessage();
                     S = new Scanner(System.in);
-                    overwriteChoice = S.toString();
+                    overwriteChoice = S.nextLine();
                 }
                 if (overwriteChoice.equals("y")){
                     game.saveGame(name);
@@ -146,6 +146,9 @@ public class GameController {
         while(!game.isEnd){
             int current_playerNum=game.currentPlayers.length;
             gameView.printTakeTurnMessage(game.currentRound);
+            if(game.currentPlayer>game.currentPlayers[current_playerNum-1]){
+                game.currentPlayer=game.currentPlayers[0];
+            }
             while (game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
             //for(int i=0; i<current_playerNum; i++){ // how to keep track of current player
                 //gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer].getId(),game.players[game.currentPlayer].getName());
@@ -162,9 +165,12 @@ public class GameController {
                 current_playerNum=game.currentPlayers.length;
             }
             game.currentRound++;
+            game.judgeIsEnd();
+            if (game.isEnd) break;
         }
         if (game.isEnd) printWinnerController();
     }
+
 
     public void printWinnerController(){
         gameView.printWinnerMessage(game.printWinner(), game.currentPlayers);

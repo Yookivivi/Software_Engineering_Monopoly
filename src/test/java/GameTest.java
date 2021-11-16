@@ -74,7 +74,7 @@ public class GameTest{
         game.currentPlayers=new int[2];
         game.currentPlayers[0]=1;
         game.currentPlayers[1]=2;
-        game.currentRound=100;
+        game.currentRound=101;
         game.judgeIsEnd();
 
         assertTrue(game.isEnd, "Game should be end");

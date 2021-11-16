@@ -12,7 +12,7 @@ public class Game implements Serializable{
     private GameController controller;
     
     public int playerNum; //the number of players
-    public int currentRound = 0; //current round
+    public int currentRound = 1; //current round
     public int[] currentPlayers; //the existing players(which have not been week out)
     public Boolean isEnd = false; 
     public Player[] players; //an array for all the players
@@ -114,7 +114,7 @@ public class Game implements Serializable{
         if(currentPlayers.length==1){
             isEnd=true;
         }
-        else if(currentRound==100){
+        else if(currentRound>100){
             isEnd=true;
         }
     };// to judge whether the game is ended

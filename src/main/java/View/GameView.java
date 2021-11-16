@@ -1,11 +1,13 @@
 package View;
 
+import java.util.Scanner;
+
 public class GameView {
     public void printChooseModeMessage(){
         System.out.println("* Welcome to Monopoly\n");
-        System.out.println("* You have 2 ways to start the game, they are:\n");
-        System.out.println("* 1. Directly start a new game.\n");
-        System.out.println("* 2. Load a previous version game.\n\n");
+        System.out.println("* You have 2 ways to start the game, they are:");
+        System.out.println("* 1. Directly start a new game.");
+        System.out.println("* 2. Load a previous version game.\n");
         System.out.println("> Please enter your choice by number (1/2): ");
     }
 
@@ -33,7 +35,8 @@ public class GameView {
     }
 
     public void printStartGameMessage(){
-        System.out.println("* Please enter the number of players(any number from 2 to 6): \n");
+        System.out.println("***********************************************************************************************");
+        System.out.println("\n* Please enter the number of players(any number from 2 to 6): ");
     }
 
     public void printTurnEndMessage(){
@@ -87,18 +90,22 @@ public class GameView {
     }
 
     public void printAddNewPlayerMessage(int player_id){
-        System.out.println("> Now please name the player with id "+player_id+" : ");
+        System.out.println("\n> Now please name the player with id "+player_id+" : ");
     }
 
     public void printSuccessfullyAddNewPlayerMessage(int player_id, String name){
-        System.out.println("* Successfully add the new player with id "+player_id+" and name "+name+"\n\n");
+        System.out.println("* Successfully add the new player with id "+player_id+" and name "+name+"\n");
     }
 
     public void printTakeTurnMessage(int round){
-        System.out.println("* Now it is the Round "+round+ ": \n");
+        //System.out.println("\n***********************************************************************************************");
+        System.out.println("\n-----------------------------------------------------------------------------------------------");
+        System.out.println("\n* Now it is the Round "+round+ ": \n");
     }
     public void printWinnerMessage(String[] winners, int[] winnerids){
         int winner_num=winners.length;
+        System.out.println("\n\n===============================================================================================");
+        System.out.println("\n* The game ends!\n\n");
         if(winner_num==1){
             System.out.println("* The winner is:\n* ID: "+winnerids[0]+", Name: "+winners[0]+".\n");
             System.out.println("  ______                                                          __            __              __      __                                __ \n" +
@@ -135,7 +142,8 @@ public class GameView {
     };
 
     public void printWelcomeMessage() {
-        System.out.println("        __       __   ______   __    __   ______   _______    ______   __    __      __ \n" +
+        System.out.println("\n\n===============================================================================================\n"+
+                "        __       __   ______   __    __   ______   _______    ______   __    __      __ \n" +
                 "       /  \\     /  | /      \\ /  \\  /  | /      \\ /       \\  /      \\ /  |  /  \\    /  |\n" +
                 "       $$  \\   /$$ |/$$$$$$  |$$  \\ $$ |/$$$$$$  |$$$$$$$  |/$$$$$$  |$$ |  $$  \\  /$$/ \n" +
                 "       $$$  \\ /$$$ |$$ |  $$ |$$$  \\$$ |$$ |  $$ |$$ |__$$ |$$ |  $$ |$$ |   $$  \\/$$/  \n" +
@@ -146,6 +154,7 @@ public class GameView {
                 "       $$/      $$/  $$$$$$/  $$/   $$/  $$$$$$/  $$/        $$$$$$/  $$$$$$$$/ $$/     \n" +
                 "                                                                                        \n" +
                 "                                                                                        \n" +
+                "===============================================================================================\n" +
                 "                                                                                        \n");
     }
 }
