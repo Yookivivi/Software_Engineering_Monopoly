@@ -1,5 +1,6 @@
 import Model.ActionController;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import Model.*;
@@ -7,6 +8,13 @@ import Model.*;
 class ActionControllerTest {
     private ActionController a;
     private Player p;
+
+    @BeforeEach
+    @DisplayName("Initialization of the ActionControllerTest")
+    public void setUp(){
+        p = new Player();
+        a = new ActionController(p);
+    }
 
     @Test
     @DisplayName("Test update money when the change is positive.")
@@ -18,7 +26,7 @@ class ActionControllerTest {
         //update money
         a.updateMoney(p,change);
         //check whether the current money is equal to the difference between the original and the change money
-        Assertions.assertEquals(original-change,p.getMoney());
+        Assertions.assertEquals(original+change,p.getMoney());
     }
 
     @Test
@@ -28,7 +36,7 @@ class ActionControllerTest {
         int change = -150;
         p.setMoney(original);
         a.updateMoney(p,change);
-        Assertions.assertEquals(original-change,p.getMoney());
+        Assertions.assertEquals(original+change,p.getMoney());
     }
 
 

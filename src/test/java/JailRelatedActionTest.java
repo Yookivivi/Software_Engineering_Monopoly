@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 //import sun.jvm.hotspot.utilities.Assert;
@@ -10,11 +11,19 @@ class JailRelatedActionTest {
     private JailRelatedAction j;
     private Dice d;
 
+    @BeforeEach
+    @DisplayName("Initialization of the JailRelatedActionTest")
+    public void setUp(){
+        p = new Player();
+        j = new JailRelatedAction(p);
+        d = new Dice();
+    }
+
 
     @Test
     @DisplayName("Test the first round in jail, suppose the player chooses to pay fine")
     void updateInJailTestRound1_P(){
-        j.updateInJail(p);
+        j.updateInJail_P(p);
         Assertions.assertFalse(p.getInJail());
     }
 
@@ -43,7 +52,7 @@ class JailRelatedActionTest {
         d.dice1 = 3;
         d.dice2 = 3;
         j.getrollDouble(d);
-        j.updateInJail(p);
+        j.updateInJail_R(p);
         // dice1 is equal to dice2, the player can get out of jail
         Assertions.assertFalse(p.getInJail());
     }
@@ -57,7 +66,7 @@ class JailRelatedActionTest {
         d.dice1 = 3;
         d.dice2 = 2;
         j.getrollDouble(d);
-        j.updateInJail(p);
+        j.updateInJail_R(p);
         // dice1 is not equal to dice2, the player is still in jail
         Assertions.assertTrue(p.getInJail());
     }
@@ -70,7 +79,7 @@ class JailRelatedActionTest {
         d.dice1 = 2;
         d.dice2 = 2;
         j.getrollDouble(d);
-        j.updateInJail(p);
+        j.updateInJail_R(p);
         Assertions.assertFalse(p.getInJail());
     }
 }
