@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.JailRelatedAction;
+import Model.Player;
 import View.JailRelatedView;
 
 import java.util.Scanner;
@@ -15,6 +16,8 @@ public class JailRelatedActionController {
     public JailRelatedActionController(){}
 
     public int chooseHowToGetOut(){
+        //1 throw double
+        //2 pay fine
         jailview.printChooseMessage();
         Scanner s= new Scanner(System.in);
         int choice = s.nextInt();
@@ -25,4 +28,16 @@ public class JailRelatedActionController {
         }
         return choice;
     }
+
+    //?????
+    public void chooseResult(Player p, int choice){
+        if (choice == 1){
+            j.updateInJail_R(p);
+        }
+        else{
+            j.updateInJail_P(p);
+        }
+    }
+
+
 }
