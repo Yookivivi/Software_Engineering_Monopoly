@@ -6,7 +6,7 @@ public class Go extends Square implements Serializable{
     public int award = 1500; // the money for players, normally = 1500
 
     public Go(int position){
-        super(0);
+        super(position);
         this.setName("GO");
     }
     /**

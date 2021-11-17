@@ -1,6 +1,8 @@
 package Model;
 
-abstract public class Square {
+import java.io.Serializable;
+
+abstract public class Square implements Serializable {
     private String name;
     private int position;
 
