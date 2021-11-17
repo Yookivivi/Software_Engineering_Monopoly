@@ -16,6 +16,10 @@ public class PropertyRelatedView {
         System.out.println("* Invalid input!\n");
         System.out.println("> Please enter a valid choice again: ");
     }
+    
+    public void printBuyMessage(LandSquare landSquare){
+        System.out.println("Success! "+landSquare.getName()+" is your now!");
+    }
 
     public void printNotBuyMessage(){
         System.out.println("OK! Thank you! Good Luck!");
