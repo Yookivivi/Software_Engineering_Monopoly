@@ -65,7 +65,7 @@ public class PlayerController {
     }
 
     public void updateSquareController(int position){
-        Square square=board.squares[position-1];
+        Square square=board.squares[position];
         playerView.printUpdatedSquareMessage(position,square.getName());
         if (square.takeEffect(player)==1){
             LandSquare landSquare=(LandSquare) square;
