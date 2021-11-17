@@ -24,5 +24,7 @@ public class PropertyRelatedView {
     public void printNotBuyMessage(){
         System.out.println("* OK! Thank you! Good Luck!");
     }
-
+    public void printNoMoneyMessage(){
+        System.out.println("Sorry! You don't have enough money to buy.");
+    }
 }
