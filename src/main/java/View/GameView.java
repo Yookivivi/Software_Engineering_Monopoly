@@ -172,7 +172,7 @@ public class GameView implements Serializable{
      * @param game
      */
     public void printPlayersPosition(Game game){
-        System.out.println("Player Information:");
+        System.out.println("* Player Information:");
         PlayerView pv = new PlayerView();
         System.out.println("-----------------------------------");
 
