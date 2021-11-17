@@ -18,28 +18,12 @@ public class PlayerController {
         if(player.getInJail()){
             playerView.printInJailMessage(player.getInJailRound());
             JailRelatedActionController jailRelatedActionController=new JailRelatedActionController(player);
-            if(player.getInJailRound()==1){
-                jailRelatedActionController.chooseHowToGetOut(player);
-                if (jailRelatedActionController.choice==2){//player choose to pay money
-                    updateIsOut();
-                    if(!player.getIsOut()) notInJailActionController();
-                }
+            jailRelatedActionController.chooseHowToGetOut(player);
+            if (jailRelatedActionController.choice==2){//player choose to pay money
+                updateIsOut();
+                if(!player.getIsOut()) notInJailActionController();
             }
-            else{
-                jailRelatedActionController.throwDoubleController(player);
-                if (!player.getInJail()){//player choose to pay money
-                    updateIsOut();
-                    if(!player.getIsOut()){
-                        ActionController actionController=new ActionController(player);
-                        int position=player.getPosition()+ jailRelatedActionController.getDiceController();
-                        if(position>20){
-                            position-=20;
-                        }
-                        actionController.updatePosition(player,position);
-                        updateSquareController(position);
-                    }
-                }
-            }
+
         }
         else{//not in jail
             notInJailActionController();
