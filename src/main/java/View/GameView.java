@@ -1,5 +1,5 @@
 package View;
-
+import Model.*;
 import java.util.Scanner;
 
 public class GameView {
@@ -156,5 +156,21 @@ public class GameView {
                 "                                                                                        \n" +
                 "===============================================================================================\n" +
                 "                                                                                        \n");
+    }
+
+    /**
+     * print the players' information in the game
+     * @param game
+     */
+    public void printPlayersPosition(Game game){
+        System.out.println("Player Information:");
+        PlayerView pv = new PlayerView();
+        System.out.println("-------------------------");
+
+        for(Player p: game.players){
+            if(p.getIsOut()) continue;
+            pv.printPlayerPosition(p, game.board);
+            System.out.println("-------------------------");
+        }
     }
 }

@@ -12,7 +12,7 @@ class ChanceTest {
     @BeforeEach
     @DisplayName("Initialization of the Chance Test")
     public void setUp(){
-        p = new Player();
+        p = new Player(1, "Tony");
         chance = new Chance();
     }
 

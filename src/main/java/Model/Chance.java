@@ -20,6 +20,10 @@ public class Chance extends MoneyRelatedSquare {
         int temp = rand.nextInt(bound);// generate a number from 0-50 randomly
         int moneyGot = temp*10 - 300;// range = [-300, 200] (multiple of 10)
         p.setMoney(p.getMoney() + moneyGot);
+        if(moneyGot >= 0)
+            System.out.println(p.getName()+ " got HKD " + moneyGot);
+        else
+            System.out.println(p.getName()+ " lost HKD " + String.valueOf(moneyGot * -1));
     }//change the amount of money of the user
 
     /**
