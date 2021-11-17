@@ -20,22 +20,24 @@ public class PropertyRelatedActionController {
     //public PropertyRelatedActionController(){}
 
     public void choosebuyland(LandSquare landSquare){
-        propertyview.printChooseBuyMessage(landSquare);
-        Scanner s = new Scanner(System.in);
-        String input = s.nextLine();
-        while(!input.equals("Y")&& !input.equals("N")){
-            propertyview.printInvalidChoiceMessage();
-            s = new Scanner(System.in);
-            input = s.nextLine();
+        if(player.getMoney() < landSquare.getPrice()){
+            propertyview.printNoMoneyMessage();
         }
-        if (input.equals("Y")){
-            propertyRelatedAction.buyland(player,landSquare);
-            propertyview.printBuyMessage(landSquare);
+        else {
+            propertyview.printChooseBuyMessage(landSquare);
+            Scanner s = new Scanner(System.in);
+            String input = s.nextLine();
+            while (!input.equals("Y") && !input.equals("N")) {
+                propertyview.printInvalidChoiceMessage();
+                s = new Scanner(System.in);
+                input = s.nextLine();
+            }
+            if (input.equals("Y")) {
+                propertyRelatedAction.buyland(player, landSquare);
+                propertyview.printBuyMessage(landSquare);
+            } else {
+                propertyview.printNotBuyMessage();
+            }
         }
-        else{
-            propertyview.printNotBuyMessage();
-        }
-
     }
-
 }
