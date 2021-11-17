@@ -18,11 +18,13 @@ public class PropertyRelatedView {
     }
     
     public void printBuyMessage(LandSquare landSquare){
-        System.out.println("Success! "+landSquare.getName()+" is your now!");
+        System.out.println("* Success! "+landSquare.getName()+" is your now!");
     }
 
     public void printNotBuyMessage(){
-        System.out.println("OK! Thank you! Good Luck!");
+        System.out.println("* OK! Thank you! Good Luck!");
     }
-
+    public void printNoMoneyMessage(){
+        System.out.println("Sorry! You don't have enough money to buy.");
+    }
 }

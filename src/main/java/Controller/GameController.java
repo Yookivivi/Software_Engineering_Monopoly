@@ -42,7 +42,7 @@ public class GameController {
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
         String input_num=S.nextLine();
-        while(!input_num.equals("1") && !input_num.equals("2")){
+        while(!input_num.equals("1") && !input_num.equals("2") && !input_num.equals("3")){
             gameView.printInvalidChoiceMessage();
             S=new Scanner(System.in);
             input_num=S.nextLine();
@@ -87,7 +87,7 @@ public class GameController {
             gameView.printSaveNameMessage();
             S=new Scanner(System.in);
             String name=S.nextLine(); // name should not include format (e.g. .txt)
-            File file = new File("save/"+name+".txt");
+            File file = new File("save/"+name+".dat");
             if (file.exists()){
                 gameView.printSaveOverwriteMessage();
                 S = new Scanner(System.in);

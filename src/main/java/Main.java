@@ -27,7 +27,7 @@ public class Main {
                 controller = new GameController(game);
                 controller.startGameController();
             }
-            else{ // load a game
+            else if (input_num.equals("2")){ // load a game
                 Game game = ctrl.loadGameController();
                 if (game == null){ // no save files
                     game = new Game();
@@ -37,6 +37,10 @@ public class Main {
                 else{ // load game
                     controller = new GameController(game);
                 }
+            }
+            else{ // exit game
+                view.printEndGameMessage();
+                break;
             }
             controller.takeTurnController();
             if (controller.gameIsEnd()){

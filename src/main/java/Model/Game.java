@@ -56,7 +56,7 @@ public class Game implements Serializable{
 
     // 11/14/21:10
     public void saveGame(String name){
-        File file = new File("save/"+name+".txt");
+        File file = new File("save/"+name+".dat");
         FileOutputStream out;
         try{
             ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream(file));
