@@ -50,7 +50,7 @@ public class GameView implements Serializable{
 
     // new
     public void printSaveNameMessage(){
-        System.out.println("> Please enter the file name: ");
+        System.out.println("> Please enter the file name(without format, e.g. .txt): ");
     }
 
     // new
