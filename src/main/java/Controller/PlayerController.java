@@ -25,14 +25,7 @@ public class PlayerController {
             }
             else{
                 if(!player.getInJail()){//go out by throw double
-                    int position=player.getPosition();
-                    Square square=board.squares[position-1];
-                    playerView.printUpdatedSquareMessage(position,square.getName());
-                    if (square.takeEffect(player)==1){//land on an unowned land
-                        LandSquare landSquare=(LandSquare) square;
-                        PropertyRelatedActionController p=new PropertyRelatedActionController(player);
-                        p.choosebuyland(landSquare);//ask if buy land
-                    }
+                    updateSquareController(player.getPosition());
                 }
             }
 

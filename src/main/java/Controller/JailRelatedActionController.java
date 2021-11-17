@@ -13,9 +13,6 @@ public class JailRelatedActionController {
     private Player p;
     public int choice;
 
-    public JailRelatedActionController(JailRelatedAction action){
-        this.j = action;
-    }
     public JailRelatedActionController(Player player){
         this.p=player;
         this.j=new JailRelatedAction(player);
@@ -24,7 +21,6 @@ public class JailRelatedActionController {
     public void chooseHowToGetOut(){
         //1 throw double
         //2 pay fine
-        //jailview.printRoundMessage(p.getInJailRound());
         jailview.printChooseMessage();
         Scanner s= new Scanner(System.in);
         choice = s.nextInt();
@@ -50,26 +46,5 @@ public class JailRelatedActionController {
             j.updateInJail_P(p);
         }
     }
-
-    public void throwDoubleController(Player p){
-        //1 throw double
-        //2 pay fine
-        j.updateInJail_R(p);
-        if(j.getrollDouble()){
-            jailview.printSuccessThrowDoubleMessage(p.getName());
-        }
-        else{
-            jailview.printFailThrowDoubleMessage(p.getName());
-        }
-    }
-
-    public int getDiceController(){
-        //1 throw double
-        //2 pay fine
-        return j.dice.totalDice;
-    }
-
-
-
 
 }
