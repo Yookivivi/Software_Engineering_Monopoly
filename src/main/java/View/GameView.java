@@ -41,7 +41,7 @@ public class GameView implements Serializable{
     }
 
     public void printTurnEndMessage(){
-        System.out.println("> Enter s to save, e to exit and c to continue: ");
+        System.out.println("\n\n> Enter s to save, e to exit and c to continue: ");
     }
 
     // new
@@ -100,8 +100,9 @@ public class GameView implements Serializable{
 
     public void printTakeTurnMessage(int round){
         //System.out.println("\n***********************************************************************************************");
-        System.out.println("\n-----------------------------------------------------------------------------------------------");
-        System.out.println("\n* Now it is the Round "+round+ ": \n");
+        //System.out.println("\n-----------------------------------------------------------------------------------------------");
+        System.out.println("\n===============================================================================================");
+        System.out.println("\n* Now it is the Round "+round+ ": ");
     }
     public void printWinnerMessage(String[] winners, int[] winnerids){
         int winner_num=winners.length;

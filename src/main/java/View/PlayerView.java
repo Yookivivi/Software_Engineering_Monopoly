@@ -3,6 +3,7 @@ package View;
 public class PlayerView {
 
     public void printPlayerTurnMessage(int player_id, String name){
+        System.out.println("\n-----------------------------------------------------------------------------------------------");
         System.out.println("\n* Now it is the turn of player with ID "+player_id+", Name "+name+": \n");
     }
 
@@ -11,14 +12,18 @@ public class PlayerView {
     }
 
     public void printDiceMessage(int dice1, int dice2, int totalDice){
-        System.out.println("\n* Dice1: "+dice1);
-        System.out.println("* Dice2: "+dice2);
-        System.out.println("* Total: "+totalDice+"\n");
+        System.out.println("\n*Now we roll the dice");
+        System.out.println("\n+--------------+\n"+
+                              "|  Dice1: " + dice1 +"    |\n"+
+                              "|  Dice2: " + dice2 +"    |\n"+
+                              "+--------------+\n"+
+                              "|  Total: " + totalDice+ "    |\n"+
+                              "+--------------+\n");
     }
 
     public void printUpdatedSquareMessage(int position, String name){
         System.out.println("\n* Now you are in the position: "+position);
-        System.out.println("\n* This Square is "+name);
+        System.out.println("* This Square is "+name+"\n");
     }
 
     public void printThrowDoubleTrueMessage(){
