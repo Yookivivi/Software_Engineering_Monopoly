@@ -3,7 +3,7 @@ import Model.*;
 public class PlayerView {
 
     public void printPlayerTurnMessage(int player_id, String name){
-        System.out.println("\n* Now it is the turn of player with ID "+player_id+", Name "+name+": \n");
+        System.out.println("* Now it is the turn of player with ID "+player_id+", Name "+name+": \n");
     }
 
     public void printInJailMessage(int inJailRound){
@@ -11,14 +11,14 @@ public class PlayerView {
     }
 
     public void printDiceMessage(int dice1, int dice2, int totalDice){
-        System.out.println("\n* Dice1: "+dice1);
+        System.out.println("* Dice1: "+dice1);
         System.out.println("* Dice2: "+dice2);
-        System.out.println("* Total: "+totalDice+"\n");
+        System.out.println("* Total: "+totalDice);
     }
 
     public void printUpdatedSquareMessage(int position, String name){
         System.out.println("\n* Now you are in the position: "+String.valueOf(position+1));
-        System.out.println("\n* This Square is "+name);
+        System.out.println("* This Square is "+name);
     }
 
     /**
@@ -26,8 +26,8 @@ public class PlayerView {
      * @param input
      */
     public void replacePrint(String input){
-        String format = "｜                      ｜";
-        String output = format.substring(0,2) + input + format.substring(2+input.length(),format.length());
+        String format = "｜                                ｜";
+        String output = format.substring(0,4) + input + format.substring(4+input.length(),format.length());
         System.out.println(output);
     }
 
