@@ -70,13 +70,13 @@ public class PlayerTest {
     @DisplayName("Test getter and setter for player's position")
     public void testPosition(){
         player.setPosition(1);
-        assertEquals(1, player.getPosition(), "Player's position should be 0");
-
-        player.setPosition(19);
-        assertEquals(19, player.getPosition(), "Player's position should be 19");
+        assertEquals(1, player.getPosition(), "Player's position should be 1");
+        
+        player.setPosition(20);
+        assertEquals(20, player.getPosition(), "Player's position should be 20");
 
         Throwable exception; // test exception when setting player's position
-        exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(-1));
+        exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(0));
         assertEquals("Position is invalid.", exception.getMessage());
         exception = assertThrows(IllegalArgumentException.class, () -> player.setPosition(21));
         assertEquals("Position is invalid.", exception.getMessage());
