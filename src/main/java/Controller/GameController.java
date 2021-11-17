@@ -117,27 +117,33 @@ public class GameController {
         }
     }
 
-    // 11/14/21:33
+   // 11/14/21:33
     public Game loadGameController(){
-        gameView.printLoadGameMessage();
         File dir = new File("save");
         File[] fs = dir.listFiles();
 
-        int index = 1;
-        for(File f:fs){
-            gameView.printSaveMessage(index, f.getName());
-            index++;
+        if (fs.length == 0){
+            gameView.printNoSaveMessage();
+            return null;
         }
-        gameView.printLoadChooseMessage();
-        Scanner s = new Scanner(System.in);
-        int choice = s.nextInt();
+        else{
+            gameView.printLoadGameMessage();
+            int index = 1;
+            for(File f:fs){
+                gameView.printSaveMessage(index, f.getName());
+                index++;
+            }
+            gameView.printLoadChooseMessage();
+            Scanner s = new Scanner(System.in);
+            int choice = s.nextInt();
 
-        while(choice < 1 || choice > fs.length){
-            gameView.printInvalidChoiceMessage();
-            s = new Scanner(System.in);
-            choice = s.nextInt();
+            while(choice < 1 || choice > fs.length){
+                gameView.printInvalidChoiceMessage();
+                s = new Scanner(System.in);
+                choice = s.nextInt();
+            }
+            return game.loadGame(fs[choice-1]);
         }
-        return game.loadGame(fs[choice-1]);
     }
 
     // new
