@@ -1,6 +1,8 @@
 package Model;
 
-public class IncomeTax extends MoneyRelatedSquare {
+import java.io.Serializable;
+
+public class IncomeTax extends MoneyRelatedSquare implements Serializable{
     private double percentage = 0.1;// Tax percentage, normally = 0.1
 
     public IncomeTax(){

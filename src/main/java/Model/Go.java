@@ -1,6 +1,8 @@
 package Model;
 
-public class Go extends MoneyRelatedSquare {
+import java.io.Serializable;
+
+public class Go extends MoneyRelatedSquare implements Serializable{
     public int award = 1500; // the money for players, normally = 1500
 
     public Go(){

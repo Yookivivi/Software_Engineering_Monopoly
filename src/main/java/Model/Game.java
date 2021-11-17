@@ -3,13 +3,11 @@ package Model;
 import java.io.*;
 import java.util.Arrays;
 
-import Controller.GameController;
 import Controller.PlayerController;
 import View.*;
 
 public class Game implements Serializable{
     private GameView view;
-    private GameController controller;
     
     public int playerNum; //the number of players
     public int currentRound = 1; //current round
@@ -20,7 +18,7 @@ public class Game implements Serializable{
     public int currentPlayer;//the id of current player
 
     public Game(){
-        Game game=new Game();
+        view = new GameView();
     };//constructor
 
     public void startGame(int input_num){
@@ -48,7 +46,7 @@ public class Game implements Serializable{
             view.printLoadFailMessage();
             e.printStackTrace();
         }
-        return controller.loadGameController();
+        return null;
     };// to load a game
 
     // 11/14/21:10
@@ -64,7 +62,6 @@ public class Game implements Serializable{
         } catch (IOException e) {
             view.printSaveFailMessage();
             e.printStackTrace();
-            controller.saveGameController();
         }
     };// to save game
 

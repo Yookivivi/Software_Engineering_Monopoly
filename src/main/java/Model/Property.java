@@ -1,8 +1,9 @@
 package Model;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Property {
+public class Property implements Serializable{
     private ArrayList<Integer> landList;// the indexes of lands owned by the player
 
     // constructor

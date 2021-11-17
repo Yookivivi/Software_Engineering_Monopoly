@@ -1,6 +1,8 @@
 package Model;
 
-public class LandSquare extends Square {
+import java.io.Serializable;
+
+public class LandSquare extends Square implements Serializable{
     private String name;// name of the property
     private Player owner;// owner of the property
     private int rent;// rent of the property
@@ -12,10 +14,10 @@ public class LandSquare extends Square {
      * @param r the rent of the property
      * @param p the price of the property
      */
-    public LandSquare(String n, int r, int p){
+    public LandSquare(String n, int p, int r){
         this.name = n;
-        this.rent = r;
         this.price = p;
+        this.rent = r;
         this.owner = null;
     }// initialize the land square (name, rent and price)
 
