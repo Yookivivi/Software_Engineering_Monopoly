@@ -16,7 +16,7 @@ public class GameController {
     public GameController(Game game){
         this.game = game;
     }
-    public GameController(){}
+    public GameController(){ this.game = new Game(); }
 
     public boolean gameIsEnd(){
         return game.isEnd;
