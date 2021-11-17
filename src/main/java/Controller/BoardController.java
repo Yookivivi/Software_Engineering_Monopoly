@@ -10,5 +10,8 @@ public class BoardController {
         this.board = b;
         this.boardView = bw;
     }
+    public void printBoard(){
+        boardView.printBoard(board);
+    }
 
 }
