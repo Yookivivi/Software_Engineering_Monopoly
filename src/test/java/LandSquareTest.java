@@ -12,7 +12,7 @@ class LandSquareTest {
     @BeforeEach
     @DisplayName("The initialization of LandSquareTest")
     public void setUp(){
-        land = new LandSquare("CENTRAL", 800, 90);
+        land = new LandSquare("CENTRAL", 800, 90,1);
     }
     /*
     @Test

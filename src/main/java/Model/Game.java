@@ -3,6 +3,7 @@ package Model;
 import java.io.*;
 import java.util.Arrays;
 
+import Controller.BoardController;
 import Controller.PlayerController;
 import View.*;
 
@@ -16,6 +17,8 @@ public class Game implements Serializable{
     public Player[] players; //an array for all the players
     public Board board;//game board
     public int currentPlayer;//the id of current player
+    public BoardView boardView;//board view
+    public BoardController boardController;//board controller
 
     public Game(){
         view = new GameView();
@@ -27,6 +30,8 @@ public class Game implements Serializable{
         players=new Player[input_num];
         currentPlayers=new int[input_num];
         currentPlayer=1;
+        boardView = new BoardView();
+        boardController = new BoardController(board,boardView);
     };//to start a new game
 
     public void addNewPlayer(int id, String name){

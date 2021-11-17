@@ -13,7 +13,7 @@ class ChanceTest {
     @DisplayName("Initialization of the Chance Test")
     public void setUp(){
         p = new Player(1, "Tony");
-        chance = new Chance();
+        chance = new Chance(8);
     }
 
 

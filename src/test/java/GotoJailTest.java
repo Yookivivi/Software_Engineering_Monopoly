@@ -13,7 +13,7 @@ class GotoJailTest {
     @DisplayName("The initialization of GoToJail Test")
     public void setup() {
        p = new Player();
-       gtj = new GotoJail();
+       gtj = new GotoJail(15);
     }
 
     @Test

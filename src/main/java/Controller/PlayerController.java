@@ -53,7 +53,7 @@ public class PlayerController {
         int dice1= actionController.currentDice.dice1;
         int dice2= actionController.currentDice.dice2;
         int total_dice=actionController.currentDice.totalDice;
-        playerView.printDiceMessage(dice1, dice2, total_dice,player);
+        playerView.printDiceMessage(dice1, dice2, total_dice);
         int position=player.getPosition()+total_dice;
         if(position>20){
             position-=20;
@@ -63,7 +63,7 @@ public class PlayerController {
     }
 
     public void updateSquareController(int position){
-        Square square=board.squares[position-1];
+        Square square=board.squares[position];
         playerView.printUpdatedSquareMessage(position,square.getName());
         if (square.takeEffect(player)==1){
             LandSquare landSquare=(LandSquare) square;
