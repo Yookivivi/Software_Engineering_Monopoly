@@ -3,6 +3,9 @@ package Model;
 public class Go extends MoneyRelatedSquare {
     public int award = 1500; // the money for players, normally = 1500
 
+    public Go(){
+        this.name = "GO";
+    }
     /**
      * Give the player 1500 hkd when they pass through the square
      * @param p

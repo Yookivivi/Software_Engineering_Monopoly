@@ -9,4 +9,8 @@ public class InJail extends JailRelatedSquare {
     public int takeEffect(Player p){
         return 0;
     }
+
+    public InJail(){
+        this.name = "IN JAIL";
+    }
 }

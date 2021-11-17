@@ -3,6 +3,9 @@ package Model;
 public class IncomeTax extends MoneyRelatedSquare {
     private double percentage = 0.1;// Tax percentage, normally = 0.1
 
+    public IncomeTax(){
+        this.name = "INCOME TAX";
+    }
     /**
      * let the player pay the tax
      * @param p the player on the Income Tax

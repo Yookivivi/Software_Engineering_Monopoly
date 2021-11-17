@@ -3,6 +3,9 @@ package Model;
 public class GotoJail extends JailRelatedSquare {
     public int inJailPosition = 5; // the position of the jail
 
+    public GotoJail(){
+        this.name = "GO TO JAIL";
+    }
     /**
      * let the player on the GotoJail go to jail
      * @param p the player on the GotoJail square

@@ -9,4 +9,7 @@ public class FreeParking extends Square {
     public int takeEffect(Player p){
         return 0;
     }
+    public FreeParking(){
+        this.name = "FREE PARKING";
+    }
 }

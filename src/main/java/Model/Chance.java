@@ -6,6 +6,9 @@ public class Chance extends MoneyRelatedSquare {
     private int maxLoseAmount = 300; //the maximum amount to lose normally 300
     private int maxGainAmount = 200; //the maximum amount to gain normally 200
 
+    public Chance(){
+        this.name = "CHANCE";
+    }
     /**
      * let the player gain money or lose money randomly, and the upper bound of gain and lose are defined by maxGainAmount
      * and maxLoseAmount
