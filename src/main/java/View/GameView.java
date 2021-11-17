@@ -105,15 +105,15 @@ public class GameView implements Serializable{
     public void printTakeTurnMessage(int round){
         //System.out.println("\n***********************************************************************************************");
         //System.out.println("\n-----------------------------------------------------------------------------------------------");
-        System.out.println("\n===============================================================================================");
-        System.out.println("\n* Now it is the Round "+round+ ": ");
+        System.out.println("***********************************************************************************************");
+        System.out.println("* Now it is the Round "+round+ ": ");
     }
     public void printWinnerMessage(String[] winners, int[] winnerids){
         int winner_num=winners.length;
-        System.out.println("\n\n===============================================================================================");
-        System.out.println("\n* The game ends!\n\n");
+        System.out.println("\n===============================================================================================");
+        System.out.println("* The game ends!\n\n");
         if(winner_num==1){
-            System.out.println("* The winner is:\n* ID: "+winnerids[0]+", Name: "+winners[0]+".\n");
+            System.out.println("* The winner is:\n* ID: "+winnerids[0]+", Name: "+winners[0]+".");
             System.out.println("  ______                                                          __            __              __      __                                __ \n" +
                     " /      \\                                                        /  |          /  |            /  |    /  |                              /  |\n" +
                     "/$$$$$$  |  ______   _______    ______    ______   ______    ____$$ | __    __ $$ |  ______   _$$ |_   $$/   ______   _______    _______ $$ |\n" +
