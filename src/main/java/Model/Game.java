@@ -20,7 +20,7 @@ public class Game implements Serializable{
     public int currentPlayer;//the id of current player
 
     public Game(){
-
+        Game game=new Game();
     };//constructor
 
     public void startGame(int input_num){
@@ -71,7 +71,7 @@ public class Game implements Serializable{
     public void takeTurn(){
         //Player player=players[currentPlayers[i]-1];
         Player player=players[currentPlayer-1];
-        PlayerController playerController=new PlayerController(player);
+        PlayerController playerController=new PlayerController(player, board);
         playerController.startTurnController();
         if(player.getIsOut()){
             int index= Arrays.binarySearch(currentPlayers, currentPlayer);

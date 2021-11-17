@@ -153,7 +153,7 @@ public class GameController {
             //for(int i=0; i<current_playerNum; i++){ // how to keep track of current player
                 //gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer].getId(),game.players[game.currentPlayer].getName());
                 game.takeTurn();
-
+                current_playerNum=game.currentPlayers.length;
                 int exit = saveGameController();
                 if (exit == 0){
                     break here;
@@ -162,7 +162,7 @@ public class GameController {
                 if(game.isEnd){
                     break here;
                 }
-                current_playerNum=game.currentPlayers.length;
+
             }
             game.currentRound++;
             game.judgeIsEnd();

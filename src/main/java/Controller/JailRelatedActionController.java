@@ -15,7 +15,7 @@ public class JailRelatedActionController {
     }
     public JailRelatedActionController(){}
 
-    public int chooseHowToGetOut(){
+    public void chooseHowToGetOut(Player p){
         //1 throw double
         //2 pay fine
         jailview.printChooseMessage();
@@ -26,11 +26,6 @@ public class JailRelatedActionController {
             s =new Scanner(System.in);
             choice = s.nextInt();
         }
-        return choice;
-    }
-
-    //?????
-    public void chooseResult(Player p, int choice){
         if (choice == 1){
             j.updateInJail_R(p);
         }
@@ -38,6 +33,8 @@ public class JailRelatedActionController {
             j.updateInJail_P(p);
         }
     }
+
+
 
 
 }

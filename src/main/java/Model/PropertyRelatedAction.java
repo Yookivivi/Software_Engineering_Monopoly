@@ -11,8 +11,8 @@ public class PropertyRelatedAction extends ActionController {
         l.setOwner(p);
         updateMoney(p,-l.getPrice());
         updateProperty(p,l);
-    };
-    public void updateProperty(Player p, LandSquare l){
-        p.getPropertyList().updateProperty(1,l.position);
-    };// update the user property list
+    }
+    public void updateProperty(Player p, LandSquare l) {
+        p.getPropertyList().updateProperty(1, l.position);
+    }// update the user property list
 }
