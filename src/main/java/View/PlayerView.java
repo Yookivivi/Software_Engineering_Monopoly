@@ -1,5 +1,7 @@
 package View;
 
+import Model.Player;
+
 public class PlayerView {
 
     public void printPlayerTurnMessage(int player_id, String name){
@@ -11,8 +13,8 @@ public class PlayerView {
         System.out.println("\n* Now you are in Jail, Round: "+inJailRound);
     }
 
-    public void printDiceMessage(int dice1, int dice2, int totalDice){
-        System.out.println("\n*Now we roll the dice");
+    public void printDiceMessage(int dice1, int dice2, int totalDice,Player player){
+        System.out.println("\n*Now "+player.getName()+" is rolling the dice");
         System.out.println("\n+--------------+\n"+
                               "|  Dice1: " + dice1 +"    |\n"+
                               "|  Dice2: " + dice2 +"    |\n"+
