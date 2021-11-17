@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Dice;
 import Model.JailRelatedAction;
 import Model.Player;
 import View.JailRelatedView;
@@ -13,7 +14,9 @@ public class JailRelatedActionController {
     public JailRelatedActionController(JailRelatedAction action){
         this.j = action;
     }
-    public JailRelatedActionController(){}
+    public JailRelatedActionController(Player player){
+        this.j=new JailRelatedAction(player);
+    }
 
     public void chooseHowToGetOut(Player p){
         //1 throw double
@@ -32,6 +35,18 @@ public class JailRelatedActionController {
         else{
             j.updateInJail_P(p);
         }
+    }
+
+    public void throwDoubleController(Player p){
+        //1 throw double
+        //2 pay fine
+        j.updateInJail_R(p);
+    }
+
+    public int getDiceController(){
+        //1 throw double
+        //2 pay fine
+        return j.dice.totalDice;
     }
 
 

@@ -18,7 +18,7 @@ public class Game implements Serializable{
     public int currentPlayer;//the id of current player
 
     public Game(){
-        
+        view = new GameView();
     };//constructor
 
     public void startGame(int input_num){

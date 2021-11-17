@@ -1,6 +1,8 @@
 package Model;
 
-public class GotoJail extends JailRelatedSquare {
+import java.io.Serializable;
+
+public class GotoJail extends JailRelatedSquare implements Serializable{
     public int inJailPosition = 5; // the position of the jail
 
     public GotoJail(){
