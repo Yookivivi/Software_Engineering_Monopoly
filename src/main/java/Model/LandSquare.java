@@ -3,7 +3,6 @@ package Model;
 import java.io.Serializable;
 
 public class LandSquare extends Square implements Serializable{
-    private String name;// name of the property
     private Player owner;// owner of the property
     private int rent;// rent of the property
     private int price;// price of the property
@@ -14,8 +13,9 @@ public class LandSquare extends Square implements Serializable{
      * @param r the rent of the property
      * @param p the price of the property
      */
-    public LandSquare(String n, int p, int r){
-        this.name = n;
+    public LandSquare(String n, int p, int r, int position){
+        super(position);
+        this.setName(n);
         this.price = p;
         this.rent = r;
         this.owner = null;
@@ -34,8 +34,6 @@ public class LandSquare extends Square implements Serializable{
     public int getRent(){
         return rent;
     } // getter of the rent
-
-    public String getName(){ return name; } // getter of the name
 
     /**
      * let the player pay the rent to the owner

@@ -12,7 +12,7 @@ class InJailTest {
     @BeforeEach
     @DisplayName("The initialization of InJail Test")
     public void setUp(){
-        ij = new InJail();
+        ij = new InJail(5);
         p = new Player();
     }
     @Test

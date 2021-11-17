@@ -13,6 +13,6 @@ public class PropertyRelatedAction extends ActionController {
         updateProperty(p,l);
     }
     public void updateProperty(Player p, LandSquare l) {
-        p.getPropertyList().updateProperty(1, l.position);
+        p.getPropertyList().updateProperty(1, l.getPosition());
     }// update the user property list
 }

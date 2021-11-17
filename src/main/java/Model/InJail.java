@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-public class InJail extends JailRelatedSquare implements Serializable{
+public class InJail extends Square implements Serializable{
     /**
      * when player go to the 6th square, they do nothing
      * @param p the player on the square
@@ -12,7 +12,8 @@ public class InJail extends JailRelatedSquare implements Serializable{
         return 0;
     }
 
-    public InJail(){
-        this.name = "IN JAIL";
+    public InJail(int position){
+        super(position);
+        this.setName("IN JAIL");
     }
 }

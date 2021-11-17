@@ -2,11 +2,12 @@ package Model;
 
 import java.io.Serializable;
 
-public class GotoJail extends JailRelatedSquare implements Serializable{
+public class GotoJail extends Square implements Serializable{
     public int inJailPosition = 5; // the position of the jail
 
-    public GotoJail(){
-        this.name = "GO TO JAIL";
+    public GotoJail(int position){
+        super(position);
+        this.setName("GO TO JAIL");
     }
     /**
      * let the player on the GotoJail go to jail

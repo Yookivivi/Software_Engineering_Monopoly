@@ -9,7 +9,7 @@ class FreeParkingTest {
     @DisplayName("Test the takeEffect of FreeParking")
     public void parkingTest(){
         Player p = new Player();
-        FreeParking free = new FreeParking();
+        FreeParking free = new FreeParking(10);
         Assertions.assertEquals(0,free.takeEffect(p));
     }
 

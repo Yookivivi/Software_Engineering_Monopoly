@@ -11,7 +11,8 @@ public class FreeParking extends Square implements Serializable{
     public int takeEffect(Player p){
         return 0;
     }
-    public FreeParking(){
-        this.name = "FREE PARKING";
+    public FreeParking(int position){
+        super(position);
+        this.setName("FREE PARKING");
     }
 }

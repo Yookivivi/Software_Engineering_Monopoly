@@ -13,7 +13,7 @@ class IncomeTaxTest {
     @DisplayName("The initialization of IncomeTaxTest")
     public void setUp(){
         p = new Player();
-        it = new IncomeTax();
+        it = new IncomeTax(3);
     }
 
     @Test

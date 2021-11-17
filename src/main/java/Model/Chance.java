@@ -3,12 +3,13 @@ package Model;
 import java.util.Random;
 import java.io.Serializable;
 
-public class Chance extends MoneyRelatedSquare implements Serializable{
+public class Chance extends Square implements Serializable{
     private int maxLoseAmount = 300; //the maximum amount to lose normally 300
     private int maxGainAmount = 200; //the maximum amount to gain normally 200
 
-    public Chance(){
-        this.name = "CHANCE";
+    public Chance(int position){
+        super(position);
+        this.setName("CHANCE");
     }
     /**
      * let the player gain money or lose money randomly, and the upper bound of gain and lose are defined by maxGainAmount

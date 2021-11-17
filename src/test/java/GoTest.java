@@ -12,7 +12,7 @@ class GoTest {
     @BeforeEach
     @DisplayName("The initialization of the GO test")
     public void setUp(){
-        go = new Go();
+        go = new Go(0);
         p = new Player();
     }
 

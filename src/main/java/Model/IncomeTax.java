@@ -2,11 +2,12 @@ package Model;
 
 import java.io.Serializable;
 
-public class IncomeTax extends MoneyRelatedSquare implements Serializable{
+public class IncomeTax extends Square implements Serializable{
     private double percentage = 0.1;// Tax percentage, normally = 0.1
 
-    public IncomeTax(){
-        this.name = "INCOME TAX";
+    public IncomeTax(int position){
+        super(position);
+        this.setName("INCOME TAX");
     }
     /**
      * let the player pay the tax
