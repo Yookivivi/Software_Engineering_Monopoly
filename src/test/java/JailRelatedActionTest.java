@@ -32,7 +32,7 @@ class JailRelatedActionTest {
     void rollDoubleTest1(){
         d.dice1 = 1;
         d.dice2 = 1;
-        Assertions.assertTrue(j.getrollDouble(d));
+        Assertions.assertTrue(j.getrollDouble());
     }
 
     @Test
@@ -40,7 +40,7 @@ class JailRelatedActionTest {
     void rollDoubleTest2(){
         d.dice1 = 2;
         d.dice2 = 3;
-        Assertions.assertFalse(j.getrollDouble(d));
+        Assertions.assertFalse(j.getrollDouble());
     }
 
 
@@ -51,7 +51,7 @@ class JailRelatedActionTest {
         p.setInJailRound(1);
         d.dice1 = 3;
         d.dice2 = 3;
-        j.getrollDouble(d);
+        j.getrollDouble();
         j.updateInJail_R(p);
         // dice1 is equal to dice2, the player can get out of jail
         Assertions.assertFalse(p.getInJail());
@@ -65,7 +65,7 @@ class JailRelatedActionTest {
         p.setInJailRound(2);
         d.dice1 = 3;
         d.dice2 = 2;
-        j.getrollDouble(d);
+        j.getrollDouble();
         j.updateInJail_R(p);
         // dice1 is not equal to dice2, the player is still in jail
         Assertions.assertTrue(p.getInJail());
@@ -78,7 +78,7 @@ class JailRelatedActionTest {
         p.setInJailRound(3);
         d.dice1 = 2;
         d.dice2 = 2;
-        j.getrollDouble(d);
+        j.getrollDouble();
         j.updateInJail_R(p);
         Assertions.assertFalse(p.getInJail());
     }

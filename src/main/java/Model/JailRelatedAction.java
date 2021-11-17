@@ -12,8 +12,8 @@ public class JailRelatedAction extends ActionController {
     }
 
 
-    public boolean getrollDouble(Dice d){
-        if (d.dice1 == d.dice2) {
+    public boolean getrollDouble(){
+        if (dice.dice1 == dice.dice2) {
             rollDouble = true;
         }
         else{
@@ -28,9 +28,9 @@ public class JailRelatedAction extends ActionController {
         int fine = 150;
 
         //if player throw doubles, she can immediately get out of jail.
-        if(getrollDouble(currentDice)){
+        if(getrollDouble()){
             p.setInJail(false);
-            updatePosition(p,p.getPosition()+ currentDice.totalDice);
+            updatePosition(p,p.getPosition()+ dice.totalDice);
         }
         //judge the round in jail
         else{
@@ -38,9 +38,10 @@ public class JailRelatedAction extends ActionController {
             if(p.getInJailRound() == 3){
                 p.setInJail(false);
                 updateMoney(p,-fine);
-                updatePosition(p,p.getPosition()+ currentDice.totalDice);
+                updatePosition(p,p.getPosition()+ dice.totalDice);
             }
             p.setInJailRound(p.getInJailRound()+1);
+            System.out.println("current round"+p.getInJailRound());
             p.setInJail(true);
         }
     }

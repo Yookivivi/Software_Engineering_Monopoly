@@ -1,6 +1,10 @@
 package View;
 
 public class JailRelatedView {
+    /*public void printRoundMessage(int round){
+        System.out.println("\n*In Jail Round "+round+"\n");
+        //System.out.println("> Please enter a valid choice again: ");
+    }*/
     public void printChooseMessage(){
         System.out.println("* You are in jail now!");
         System.out.println("* You have 2 ways to get out of jail.");
