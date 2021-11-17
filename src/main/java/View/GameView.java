@@ -16,6 +16,10 @@ public class GameView implements Serializable{
         System.out.println("* Invalid input!\n");
         System.out.println("> Please enter a valid choice again: ");
     }
+    
+    public void printNoSaveMessage(){
+        System.out.println("* There is no save file. Please start a new game.\n");
+    }
 
     public void printContinueMessage(){
         System.out.println("> Enter m to go back to menu and e to exit: ");
