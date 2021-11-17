@@ -17,7 +17,7 @@ public class PlayerView {
     }
 
     public void printUpdatedSquareMessage(int position, String name){
-        System.out.println("\n* Now you are in the position: "+String.valueOf(position+1));
+        System.out.println("\n* Now you are in the position: "+String.valueOf(position));
         System.out.println("* This Square is "+name);
     }
 
