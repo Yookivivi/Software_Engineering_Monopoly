@@ -1,8 +1,9 @@
 package View;
 
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class GameView {
+public class GameView implements Serializable{
     public void printChooseModeMessage(){
         System.out.println("* Welcome to Monopoly\n");
         System.out.println("* You have 2 ways to start the game, they are:");
