@@ -1,6 +1,8 @@
 package Model;
 
-public class InJail extends JailRelatedSquare {
+import java.io.Serializable;
+
+public class InJail extends JailRelatedSquare implements Serializable{
     /**
      * when player go to the 6th square, they do nothing
      * @param p the player on the square
