@@ -152,12 +152,11 @@ public class GameController {
         while(!game.isEnd){
             int current_playerNum=game.currentPlayers.length;
             gameView.printTakeTurnMessage(game.currentRound);
-            if(game.currentPlayer>game.currentPlayers[current_playerNum-1]){
-                game.currentPlayer=game.currentPlayers[0];
+            if(game.currentPlayer>game.currentPlayers[current_playerNum-1]){//if all the player in this round has played
+                game.currentPlayer=game.currentPlayers[0];//go back to the first player
             }
             while (game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
-            //for(int i=0; i<current_playerNum; i++){ // how to keep track of current player
-                //gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer].getId(),game.players[game.currentPlayer].getName());
+                //takeTurn
                 game.takeTurn();
                 //printboard
                 game.boardController.printBoard();
@@ -171,13 +170,15 @@ public class GameController {
                     }
                     break here;
                 }
+                //judge if game is end.
                 game.judgeIsEnd();
-                if(game.isEnd){
+                if(game.isEnd){//game is end
                     break here;
                 }
 
             }
             game.currentRound++;
+            //judge if game is end.
             game.judgeIsEnd();
             if (game.isEnd) break;
         }
