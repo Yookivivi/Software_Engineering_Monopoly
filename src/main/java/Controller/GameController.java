@@ -87,7 +87,7 @@ public class GameController {
             gameView.printSaveNameMessage();
             S=new Scanner(System.in);
             String name=S.nextLine(); // name should not include format (e.g. .txt)
-            File file = new File("save/"+name+".txt");
+            File file = new File("save/"+name+".dat");
             if (file.exists()){
                 gameView.printSaveOverwriteMessage();
                 S = new Scanner(System.in);
