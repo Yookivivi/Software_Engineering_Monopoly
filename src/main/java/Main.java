@@ -4,9 +4,7 @@ import View.*;
 
 import java.io.File;
 
-
-public class
-Main {
+public class Main {
     public static void main(String[] args){
         GameController ctrl = new GameController();
         GameView view = new GameView();
@@ -18,8 +16,7 @@ Main {
                 b = save.mkdir();
             }
         }
-
-
+        
         while(true){
             view.printWelcomeMessage();
             //view.printChooseModeMessage();
@@ -31,16 +28,21 @@ Main {
                 controller.startGameController();
             }
             else{ // load a game
-                controller = new GameController(ctrl.loadGameController());
+                Game game = ctrl.loadGameController();
+                if (game == null){ // no save files
+                    game = new Game();
+                    controller = new GameController(game);
+                    controller.startGameController();
+                }
+                else{ // load game
+                    controller = new GameController(game);
+                }
             }
             controller.takeTurnController();
             if (controller.gameIsEnd()){
                 String choice = controller.endGame();
                 if (choice.equals("e")) break;
             }
-
-
         }
-
     }
 }
