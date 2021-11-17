@@ -16,6 +16,7 @@ public class GotoJail extends Square implements Serializable{
     public void updateInJail(Player p){
         p.setPosition(inJailPosition);
         p.setInJail(true);
+        p.setInJailRound(1);
     }//update the player's state in jail
 
     /**

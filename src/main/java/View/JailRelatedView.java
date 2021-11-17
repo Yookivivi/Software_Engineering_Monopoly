@@ -12,4 +12,21 @@ public class JailRelatedView {
         System.out.println("* Invalid input!\n");
         System.out.println("> Please enter a valid choice again: ");
     }
+    public void printTrowDoubleMessage(String name){
+        System.out.println("* "+name+" choose to throw double");
+        System.out.println("* Now throw the dice\n ");
+    }
+    public void printPayFeeMessage(String name){
+        System.out.println("* "+name+" choose to pay HKD 150");
+        System.out.println("* "+ name+" goes out of the jail\n");
+    }
+
+    public void printSuccessThrowDoubleMessage(String name){
+        System.out.println("* "+name+" successfully throw double");
+        System.out.println("* "+ name+" goes out of the jail\n");
+    }
+
+    public void printFailThrowDoubleMessage(String name){
+        System.out.println("* "+name+" fail to throw double\n");
+    }
 }
