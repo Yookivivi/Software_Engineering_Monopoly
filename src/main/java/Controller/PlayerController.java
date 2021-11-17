@@ -53,7 +53,7 @@ public class PlayerController {
         int dice1= actionController.currentDice.dice1;
         int dice2= actionController.currentDice.dice2;
         int total_dice=actionController.currentDice.totalDice;
-        playerView.printDiceMessage(dice1, dice2, total_dice);
+        playerView.printDiceMessage(dice1, dice2, total_dice,player);
         int position=player.getPosition()+total_dice;
         if(position>20){
             position-=20;
