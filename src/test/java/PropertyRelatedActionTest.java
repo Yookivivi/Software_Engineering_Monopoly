@@ -60,6 +60,6 @@ class PropertyRelatedActionTest {
         //System.out.println(p2.getPropertyList().getLandList().get(1));
         //System.out.println(p2.getPropertyList().getLandList().get(2));
         Assertions.assertEquals(p2.getId(),l2.getOwner().getId());
-        Assertions.assertSame(l2.position,p2.getPropertyList().getLandList().get(2));
+        Assertions.assertEquals(l2.position,p2.getPropertyList().getLandList().get(2));
     }
 }
