@@ -1,7 +1,9 @@
 package View;
 import Model.*;
 
-public class BoardView {
+import java.io.Serializable;
+
+public class BoardView implements Serializable {
     public int BoardLength = 15;
     public void printName(String name){
         System.out.print("| "+name);

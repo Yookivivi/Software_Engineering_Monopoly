@@ -2,7 +2,9 @@ package Controller;
 import Model.*;
 import View.*;
 
-public class BoardController {
+import java.io.Serializable;
+
+public class BoardController implements Serializable {
     private Board board;
     private BoardView boardView;
 
