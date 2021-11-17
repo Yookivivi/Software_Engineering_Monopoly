@@ -20,33 +20,45 @@ public class PlayerController {
             if(player.getInJailRound()==1){
                 JailRelatedActionController jailRelatedActionController=new JailRelatedActionController();
                 jailRelatedActionController.chooseHowToGetOut(player);
+                if (!player.getInJail()){//player choose to pay money
+                    updateIsOut();
+                    if(!player.getIsOut()) notInJailActionController();
+                }
+            }
+            else{
+                ActionController actionController=new ActionController(player);
+                actionController.currentDice.rollDice();
             }
         }
         else{
-            ActionController actionController=new ActionController(player);
-            actionController.currentDice.rollDice();
-            int dice1= actionController.currentDice.dice1;
-            int dice2= actionController.currentDice.dice2;
-            int total_dice=actionController.currentDice.totalDice;
-            playerView.printDiceMessage(dice1, dice2, total_dice);
-            int position=player.getPosition()+total_dice;
-            if(position>20){
-                position-=20;
-            }
-            actionController.updatePosition(player,position);
-            updateSquareController(position);
+            notInJailActionController();
         }
+    }
+
+    public void notInJailActionController(){
+        ActionController actionController=new ActionController(player);
+        actionController.currentDice.rollDice();
+        int dice1= actionController.currentDice.dice1;
+        int dice2= actionController.currentDice.dice2;
+        int total_dice=actionController.currentDice.totalDice;
+        playerView.printDiceMessage(dice1, dice2, total_dice);
+        int position=player.getPosition()+total_dice;
+        if(position>20){
+            position-=20;
+        }
+        actionController.updatePosition(player,position);
+        updateSquareController(position);
     }
 
     public void updateSquareController(int position){
         Square square=board.squares[position-1];
-
+        playerView.printUpdatedSquareMessage(position,square.getName());
         if (square.takeEffect(player)==1){
             LandSquare landSquare=(LandSquare) square;
-            PropertyRelatedActionController p=new PropertyRelatedActionController();
-            p.choosebuyland(landSquare,player);
+            PropertyRelatedActionController p=new PropertyRelatedActionController(player);
+            p.choosebuyland(landSquare);
         }
-
+        updateIsOut();
     }
 
 
@@ -62,7 +74,6 @@ public class PlayerController {
                 LandSquare landSquare=(LandSquare) square;
                 landSquare.setOwner(null);
                 property.updateProperty(0,player.getPropertyList().getLandList().get(0));
-
             }
 
         }

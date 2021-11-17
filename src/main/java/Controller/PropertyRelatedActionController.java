@@ -11,13 +11,15 @@ import java.util.Scanner;
 public class PropertyRelatedActionController {
     private PropertyRelatedAction propertyRelatedAction;
     private PropertyRelatedView propertyview = new PropertyRelatedView();
+    private Player player;
 
-    public PropertyRelatedActionController(PropertyRelatedAction action){
-        this.propertyRelatedAction = action;
+    public PropertyRelatedActionController(Player player){
+        this.player=player;
+        this.propertyRelatedAction = new PropertyRelatedAction(this.player);
     }
-    public PropertyRelatedActionController(){}
+    //public PropertyRelatedActionController(){}
 
-    public void choosebuyland(LandSquare landSquare, Player p){
+    public void choosebuyland(LandSquare landSquare){
         propertyview.printChooseBuyMessage(landSquare);
         Scanner s = new Scanner(System.in);
         String input = s.nextLine();
@@ -27,7 +29,7 @@ public class PropertyRelatedActionController {
             input = s.nextLine();
         }
         if (input.equals("Y")){
-            propertyRelatedAction.buyland(p,landSquare);
+            propertyRelatedAction.buyland(player,landSquare);
         }
         else{
             propertyview.printNotBuyMessage();
