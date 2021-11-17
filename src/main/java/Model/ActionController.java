@@ -1,7 +1,7 @@
 package Model;
 
 public class ActionController {
-    public Dice currentDice;
+    public Dice currentDice=new Dice();
     private Player p;
 
     public ActionController(Player player){

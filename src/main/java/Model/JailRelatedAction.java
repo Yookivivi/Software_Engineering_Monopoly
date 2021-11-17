@@ -3,7 +3,7 @@ package Model;
 public class JailRelatedAction extends ActionController {
     private boolean rollDouble;
     private Player p;
-    private Dice dice;
+    public Dice dice;
 
     public JailRelatedAction(Player player) {
         super(player);

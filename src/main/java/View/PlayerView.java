@@ -20,4 +20,15 @@ public class PlayerView {
         System.out.println("\n* Now you are in the position: "+position);
         System.out.println("\n* This Square is "+name);
     }
+
+    public void printThrowDoubleTrueMessage(){
+        System.out.println("\n* Congratulations!");
+        System.out.println("* You successfully throw double!");
+        System.out.println("* You go out of the jail.");
+    }
+
+    public void printThrowDoubleFalseMessage(){
+        System.out.println("\n* Oh no");
+        System.out.println("* You fail to throw double!");
+    }
 }
