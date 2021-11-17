@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 
 public class GotoJail extends Square implements Serializable{
-    public int inJailPosition = 5; // the position of the jail
+    public int inJailPosition = 6; // the position of the jail
 
     public GotoJail(int position){
         super(position);
