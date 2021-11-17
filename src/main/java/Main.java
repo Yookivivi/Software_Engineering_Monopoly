@@ -5,7 +5,8 @@ import View.*;
 import java.io.File;
 
 
-public class Main {
+public class
+Main {
     public static void main(String[] args){
         GameController ctrl = new GameController();
         GameView view = new GameView();
@@ -18,9 +19,10 @@ public class Main {
             }
         }
 
+
         while(true){
             view.printWelcomeMessage();
-            view.printChooseModeMessage();
+            //view.printChooseModeMessage();
             String input_num = ctrl.chooseBeginWay();
             GameController controller;
             if (input_num.equals("1")){ // start a new game
@@ -36,6 +38,9 @@ public class Main {
                 String choice = controller.endGame();
                 if (choice.equals("e")) break;
             }
+
+
         }
+
     }
 }

@@ -1,7 +1,10 @@
 package Model;
 
 import java.io.*;
+import java.util.Arrays;
+
 import Controller.GameController;
+import Controller.PlayerController;
 import View.*;
 
 public class Game implements Serializable{
@@ -9,11 +12,12 @@ public class Game implements Serializable{
     private GameController controller;
     
     public int playerNum; //the number of players
-    public int currentRound = 0; //current round
-    public int[] currentPlayer; //
+    public int currentRound = 1; //current round
+    public int[] currentPlayers; //the existing players(which have not been week out)
     public Boolean isEnd = false; 
     public Player[] players; //an array for all the players
     public Board board;//game board
+    public int currentPlayer;//the id of current player
 
     public Game(){
 
@@ -23,13 +27,14 @@ public class Game implements Serializable{
         board=new Board();
         playerNum=input_num;
         players=new Player[input_num];
-        currentPlayer=new int[input_num];
+        currentPlayers=new int[input_num];
+        currentPlayer=1;
     };//to start a new game
 
     public void addNewPlayer(int id, String name){
         Player player=new Player(id, name);
         players[id-1]=player;
-        currentPlayer[id-1]=id;
+        currentPlayers[id-1]=id;
     };//to create the player and add him/her to the players
 
     // 11/14/21:39
@@ -63,26 +68,62 @@ public class Game implements Serializable{
         }
     };// to save game
 
-    public void takeTurn(int i){
-        Player player=players[currentPlayer[i]-1];
+    public void takeTurn(){
+        //Player player=players[currentPlayers[i]-1];
+        Player player=players[currentPlayer-1];
+        PlayerController playerController=new PlayerController(player);
+        playerController.startTurnController();
+        if(player.getIsOut()){
+            int index= Arrays.binarySearch(currentPlayers, currentPlayer);
+            int formal_length=currentPlayers.length;
+            int[] formalPlayers=currentPlayers;
+            currentPlayers=new int[formal_length-1];
+            for(int i=0; i<formal_length; i++){
+                if(i<index){
+                    currentPlayers[i]=formalPlayers[i];
+                }
+                else if(i>index){
+                    currentPlayers[i-1]=formalPlayers[i];
+                }
+                else{
+                    continue;
+                }
+            }
+            if(currentPlayer>=currentPlayers[currentPlayers.length-1]){
+                currentPlayer++;//jump out this round
+            }
+            else{
+                currentPlayer=currentPlayers[index];
+            }
+        }
+        else{
+            if(currentPlayer==currentPlayers[currentPlayers.length-1]){
+                currentPlayer++;//jump out the while loop
+            }
+            else{
+                int index= Arrays.binarySearch(currentPlayers, currentPlayer);
+                currentPlayer=currentPlayers[index+1];
+            }
+        }
 
 
     };//to do the next turn
+
     
     public void judgeIsEnd(){
-        if(currentPlayer.length==1){
+        if(currentPlayers.length==1){
             isEnd=true;
         }
-        else if(currentRound==100){
+        else if(currentRound>100){
             isEnd=true;
         }
     };// to judge whether the game is ended
 
     public String[] printWinner(){
-        int winner_num=currentPlayer.length;
+        int winner_num=currentPlayers.length;
         String[] winners=new String[winner_num];
         for(int i=0; i<winner_num; i++){
-            winners[i]=players[currentPlayer[i]-1].getName();
+            winners[i]=players[currentPlayers[i]-1].getName();
         }
         return winners;
     };// print the winner of the game

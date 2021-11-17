@@ -1,4 +1,6 @@
+import Model.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,18 @@ class PropertyRelatedActionTest {
     private LandSquare l1;
     private LandSquare l2;
 
+    @BeforeEach
+    @DisplayName("Initialization of the JailRelatedActionTest")
+    public void setUp(){
+        p1 = new Player(1,"Bob");
+        p2 = new Player(2,"Lisa");
+        pro = new Property();
+        pro2 = new Property();
+        y1 = new PropertyRelatedAction(p1);
+        y2 = new PropertyRelatedAction(p2);
+        l1 = new LandSquare("Stanley",60,600);
+        l2 = new LandSquare("Tsing Yi",15,400);
+    }
 
 
     @Test
@@ -26,8 +40,11 @@ class PropertyRelatedActionTest {
         p1.setPosition(l1.position);
         y1.buyland(p1,l1);
         y1.updateProperty(p1,l1);
-        Assertions.assertEquals(p1.getId(),l1.getOwner());
-        Assertions.assertEquals(5,p1.getProperty()[2]);
+        Assertions.assertEquals(p1.getId(),l1.getOwner().getId());
+        //System.out.println(p1.getPropertyList().getLandList().get(0));
+        //System.out.println(p1.getPropertyList().getLandList().get(1));
+        //System.out.println(p1.getPropertyList().getLandList().get(2));
+        Assertions.assertEquals(l1.position,p1.getPropertyList().getLandList().get(2));
     }
 
     @Test
@@ -39,7 +56,10 @@ class PropertyRelatedActionTest {
         p2.setPosition(l2.position);
         y2.buyland(p2, l2);
         y2.updateProperty(p2,l2);
-        Assertions.assertEquals(p2.getId(),l2.getOwner());
-        Assertions.assertSame(pro2,p2.getProperty()[2]);
+        //System.out.println(p1.getPropertyList().getLandList().get(0));
+        //System.out.println(p1.getPropertyList().getLandList().get(1));
+        //System.out.println(p1.getPropertyList().getLandList().get(2));
+        Assertions.assertEquals(p2.getId(),l2.getOwner().getId());
+        Assertions.assertSame(l2.position,p2.getPropertyList().getLandList().get(2));
     }
 }
