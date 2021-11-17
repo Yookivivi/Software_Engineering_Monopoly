@@ -56,9 +56,9 @@ class PropertyRelatedActionTest {
         p2.setPosition(l2.position);
         y2.buyland(p2, l2);
         y2.updateProperty(p2,l2);
-        //System.out.println(p1.getPropertyList().getLandList().get(0));
-        //System.out.println(p1.getPropertyList().getLandList().get(1));
-        //System.out.println(p1.getPropertyList().getLandList().get(2));
+        //System.out.println(p2.getPropertyList().getLandList().get(0));
+        //System.out.println(p2.getPropertyList().getLandList().get(1));
+        //System.out.println(p2.getPropertyList().getLandList().get(2));
         Assertions.assertEquals(p2.getId(),l2.getOwner().getId());
         Assertions.assertSame(l2.position,p2.getPropertyList().getLandList().get(2));
     }
