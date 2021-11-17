@@ -60,7 +60,7 @@ public class Player implements Serializable{
     }
 
     public void setPosition(int position){
-        if (position < 0 || position > 19){
+        if (position < 1 || position > 20){
             throw new IllegalArgumentException("Position is invalid.");
         }
         else this.position = position;
