@@ -1,8 +1,9 @@
 package Model;
 
 import java.util.Random;
+import java.io.Serializable;
 
-public class Chance extends MoneyRelatedSquare {
+public class Chance extends MoneyRelatedSquare implements Serializable{
     private int maxLoseAmount = 300; //the maximum amount to lose normally 300
     private int maxGainAmount = 200; //the maximum amount to gain normally 200
 
