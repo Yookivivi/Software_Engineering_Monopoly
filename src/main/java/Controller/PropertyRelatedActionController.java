@@ -30,6 +30,7 @@ public class PropertyRelatedActionController {
         }
         if (input.equals("Y")){
             propertyRelatedAction.buyland(player,landSquare);
+            propertyview.printBuyMessage(landSquare);
         }
         else{
             propertyview.printNotBuyMessage();
