@@ -32,5 +32,4 @@ public class Board implements Serializable{
         squares[18] = new Chance(19);
         squares[19] = new LandSquare("Tai O", 600, 25, 20);
     };
-    public void printBoard(){}; //print the board
 }
