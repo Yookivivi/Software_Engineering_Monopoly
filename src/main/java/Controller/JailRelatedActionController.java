@@ -10,16 +10,18 @@ import java.util.Scanner;
 public class JailRelatedActionController {
     private JailRelatedAction j;
     private JailRelatedView jailview = new JailRelatedView();
+    private Player p;
     public int choice;
 
     public JailRelatedActionController(JailRelatedAction action){
         this.j = action;
     }
     public JailRelatedActionController(Player player){
+        this.p=player;
         this.j=new JailRelatedAction(player);
     }
 
-    public void chooseHowToGetOut(Player p){
+    public void chooseHowToGetOut(){
         //1 throw double
         //2 pay fine
         //jailview.printRoundMessage(p.getInJailRound());
@@ -37,7 +39,7 @@ public class JailRelatedActionController {
             jailview.printDiceMessage(j.dice.dice1, j.dice.dice2, j.dice.totalDice);
             if(j.getrollDouble()){
                 jailview.printSuccessThrowDoubleMessage(p.getName());
-                j.updatePosition(p,p.getPosition()+j.dice.totalDice);
+                //j.updatePosition(p,p.getPosition()+j.dice.totalDice);
             }
             else{
                 jailview.printFailThrowDoubleMessage(p.getName());

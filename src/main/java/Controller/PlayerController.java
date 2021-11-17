@@ -18,7 +18,7 @@ public class PlayerController {
         if(player.getInJail()){
             playerView.printInJailMessage(player.getInJailRound());
             JailRelatedActionController jailRelatedActionController=new JailRelatedActionController(player);
-            jailRelatedActionController.chooseHowToGetOut(player);
+            jailRelatedActionController.chooseHowToGetOut();
             if (jailRelatedActionController.choice==2){//player choose to pay money
                 updateIsOut();
                 if(!player.getIsOut()) notInJailActionController();

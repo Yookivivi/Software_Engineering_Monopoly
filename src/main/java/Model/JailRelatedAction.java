@@ -35,6 +35,7 @@ public class JailRelatedAction extends ActionController {
         //judge the round in jail
         else{
             //if the player does not throw doubles by her third turn, she must pay fine and then get out of jail
+            System.out.println("inJailRound" + p.getInJailRound());
             if(p.getInJailRound() == 3){
                 p.setInJail(false);
                 updateMoney(p,-fine);
