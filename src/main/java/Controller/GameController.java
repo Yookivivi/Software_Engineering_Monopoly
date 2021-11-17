@@ -42,7 +42,7 @@ public class GameController {
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
         String input_num=S.nextLine();
-        while(!input_num.equals("1") && !input_num.equals("2")){
+        while(!input_num.equals("1") && !input_num.equals("2") && !input_num.equals("3")){
             gameView.printInvalidChoiceMessage();
             S=new Scanner(System.in);
             input_num=S.nextLine();

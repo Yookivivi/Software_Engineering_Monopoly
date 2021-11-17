@@ -9,7 +9,8 @@ public class GameView implements Serializable{
         System.out.println("* You have 2 ways to start the game, they are:");
         System.out.println("* 1. Directly start a new game.");
         System.out.println("* 2. Load a previous version game.");
-        System.out.println("> Please enter your choice by number (1/2): ");
+        System.out.println("* 3. Exit game.");
+        System.out.println("> Please enter your choice by number (1/2/3): ");
     }
 
     public void printInvalidChoiceMessage(){
