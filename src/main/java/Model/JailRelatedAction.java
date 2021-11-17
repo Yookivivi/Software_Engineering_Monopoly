@@ -41,9 +41,12 @@ public class JailRelatedAction extends ActionController {
                 updateMoney(p,-fine);
                 updatePosition(p,p.getPosition()+ dice.totalDice);
             }
-            p.setInJailRound(p.getInJailRound()+1);
-            System.out.println("current round"+p.getInJailRound());
-            p.setInJail(true);
+            else{
+                p.setInJailRound(p.getInJailRound()+1);
+                System.out.println("current round"+p.getInJailRound());
+                p.setInJail(true);
+            }
+
         }
     }
 
