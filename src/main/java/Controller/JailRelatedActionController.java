@@ -33,7 +33,7 @@ public class JailRelatedActionController {
         if (choice == 1){
             jailview.printTrowDoubleMessage(p.getName());
             j.updateInJail_R(p);
-            jailview.printDiceMessage(j.dice.dice1, j.dice.dice2);
+            jailview.printDiceMessage(j.dice.dice1, j.dice.dice2, j.dice.totalDice);
             if(j.getrollDouble(j.dice)){
                 jailview.printSuccessThrowDoubleMessage(p.getName());
             }

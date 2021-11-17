@@ -20,10 +20,10 @@ public class JailRelatedView {
         System.out.println("* "+name+" choose to pay HKD 150");
         System.out.println("* "+ name+" goes out of the jail\n");
     }
-    public void printDiceMessage(int dice1, int dice2){
+    public void printDiceMessage(int dice1, int dice2, int totalDice){
         System.out.println("* Dice1: "+dice1);
         System.out.println("* Dice2: "+dice2);
-        System.out.println("* Total: "+dice1+dice2);
+        System.out.println("* Total: "+totalDice);
     }
     public void printSuccessThrowDoubleMessage(String name){
         System.out.println("* "+name+" successfully throw double");
