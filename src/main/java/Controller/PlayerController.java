@@ -57,6 +57,8 @@ public class PlayerController {
         int position=player.getPosition()+total_dice;
         if(position>20){
             position-=20;
+            player.setMoney(player.getMoney()+1500);
+            System.out.println(player.getName()+"has passed GO, and got HKD1500");
         }
         actionController.updatePosition(player,position);
         updateSquareController(position);

@@ -24,7 +24,7 @@ public class Go extends Square implements Serializable{
      * @return
      */
     public int takeEffect(Player p){
-        updateMoney(p);
+       // updateMoney(p);
         return 0;
     }
 }
