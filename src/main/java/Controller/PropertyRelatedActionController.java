@@ -17,24 +17,22 @@ public class PropertyRelatedActionController {
     }
     public PropertyRelatedActionController(){}
 
-    public String choosebuyland(LandSquare landSquare){
+    public void choosebuyland(LandSquare landSquare, Player p){
         propertyview.printChooseBuyMessage(landSquare);
         Scanner s = new Scanner(System.in);
-        String input = s.toString();
+        String input = s.nextLine();
         while(!input.equals("Y")&& !input.equals("N")){
             propertyview.printInvalidChoiceMessage();
             s = new Scanner(System.in);
-            input = s.toString();
+            input = s.nextLine();
         }
-        return input;
-    }
-
-    public void chooseResult(Player p, String input,LandSquare landSquare){
         if (input.equals("Y")){
             propertyRelatedAction.buyland(p,landSquare);
         }
         else{
             propertyview.printNotBuyMessage();
         }
+
     }
+
 }

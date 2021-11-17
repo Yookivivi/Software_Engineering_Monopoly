@@ -34,15 +34,17 @@ public class PlayerController {
                 position-=20;
             }
             actionController.updatePosition(player,position);
-            updateSquareController(position,actionController);
+            updateSquareController(position);
         }
     }
 
-    public void updateSquareController(int position, ActionController actionController){
+    public void updateSquareController(int position){
         Square square=board.squares[position-1];
 
         if (square.takeEffect(player)==1){
-            
+            LandSquare landSquare=(LandSquare) square;
+            PropertyRelatedActionController p=new PropertyRelatedActionController();
+            p.choosebuyland(landSquare,player);
         }
 
     }
@@ -57,9 +59,8 @@ public class PlayerController {
             for(int i=0; i<propertyNum; i++){
                 int position=player.getPropertyList().getLandList().get(0);
                 Square square=board.squares[position-1];
-
-                //square.
-                //LandSquare landSquare=
+                LandSquare landSquare=(LandSquare) square;
+                landSquare.setOwner(null);
                 property.updateProperty(0,player.getPropertyList().getLandList().get(0));
 
             }

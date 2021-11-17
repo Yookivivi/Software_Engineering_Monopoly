@@ -156,6 +156,9 @@ public class GameController {
                 current_playerNum=game.currentPlayers.length;
                 int exit = saveGameController();
                 if (exit == 0){
+                    if(game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
+                        game.currentPlayer=game.currentPlayers[0];
+                    }
                     break here;
                 }
                 game.judgeIsEnd();
