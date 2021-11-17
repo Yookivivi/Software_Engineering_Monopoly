@@ -159,6 +159,12 @@ public class GameController {
             //for(int i=0; i<current_playerNum; i++){ // how to keep track of current player
                 //gameView.printTakeTurnMessage(game.currentRound,game.players[game.currentPlayer].getId(),game.players[game.currentPlayer].getName());
                 game.takeTurn();
+
+                // test
+                for (Player player:game.players){
+                    System.out.println("PropertyLength: "+ player.getPropertyList().getLandNum());
+                }
+
                 //printboard
                 game.boardController.printBoard();
                 //print player's information

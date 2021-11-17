@@ -171,12 +171,12 @@ public class GameView implements Serializable{
     public void printPlayersPosition(Game game){
         System.out.println("Player Information:");
         PlayerView pv = new PlayerView();
-        System.out.println("-------------------------");
+        System.out.println("-----------------------------------");
 
         for(Player p: game.players){
             if(p.getIsOut()) continue;
-            pv.printPlayerPosition(p, game.board);
-            System.out.println("-------------------------");
+            pv.printPlayerPosition(p, game.board);                //
+            System.out.println("-----------------------------------");
         }
     }
 }

@@ -26,8 +26,8 @@ public class PlayerView {
      * @param input
      */
     public void replacePrint(String input){
-        String format = "｜                      ｜";
-        String output = format.substring(0,2) + input + format.substring(2+input.length(),format.length());
+        String format = "｜                                ｜";
+        String output = format.substring(0,4) + input + format.substring(4+input.length(),format.length());
         System.out.println(output);
     }
 
