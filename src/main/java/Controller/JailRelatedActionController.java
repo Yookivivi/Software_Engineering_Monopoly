@@ -30,9 +30,11 @@ public class JailRelatedActionController {
             choice = s.nextInt();
         }
         if (choice == 1){
+            jailview.printTrowDoubleMessage(p.getName());
             j.updateInJail_R(p);
         }
         else{
+            jailview.printPayFeeMessage(p.getName());
             j.updateInJail_P(p);
         }
     }
@@ -41,6 +43,12 @@ public class JailRelatedActionController {
         //1 throw double
         //2 pay fine
         j.updateInJail_R(p);
+        if(j.getrollDouble(j.dice)){
+            jailview.printSuccessThrowDoubleMessage(p.getName());
+        }
+        else{
+            jailview.printFailThrowDoubleMessage(p.getName());
+        }
     }
 
     public int getDiceController(){
