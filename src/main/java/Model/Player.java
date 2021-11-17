@@ -8,7 +8,7 @@ public class Player implements Serializable{
     private boolean inJail = false;// whether the player is in jail
     private int inJailRound = 0;// the round that the player be in the jail
     private int money = 1500;
-    private int position = 0;
+    private int position = 1;
     private boolean isOut = false;// whether the player is out of the game
     private Property propertyList = new Property(); // property owned by the player
 

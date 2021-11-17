@@ -17,7 +17,7 @@ public class PlayerView {
     }
 
     public void printUpdatedSquareMessage(int position, String name){
-        System.out.println("\n* Now you are in the position: "+String.valueOf(position+1));
+        System.out.println("\n* Now you are in the position: "+String.valueOf(position));
         System.out.println("* This Square is "+name);
     }
 
@@ -39,6 +39,6 @@ public class PlayerView {
     public void printPlayerPosition(Player p, Board board){
         replacePrint("Player " + p.getId() + ": "+ p.getName());
         replacePrint("Money: "+ p.getMoney());
-        replacePrint("Location: " + String.valueOf(p.getPosition() + 1) + " ("+board.squares[p.getPosition()].getName()+")");
+        replacePrint("Location: " + String.valueOf(p.getPosition()) + " ("+board.squares[p.getPosition()].getName()+")");
     }
 }
