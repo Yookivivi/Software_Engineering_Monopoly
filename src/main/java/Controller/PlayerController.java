@@ -17,7 +17,7 @@ public class PlayerController {
         playerView.printPlayerTurnMessage(player.getId(),player.getName());
         if(player.getInJail()){
             playerView.printInJailMessage(player.getInJailRound());
-            JailRelatedActionController jailRelatedActionController=new JailRelatedActionController();
+            JailRelatedActionController jailRelatedActionController=new JailRelatedActionController(player);
             if(player.getInJailRound()==1){
 
                 jailRelatedActionController.chooseHowToGetOut(player);

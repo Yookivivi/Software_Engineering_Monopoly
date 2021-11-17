@@ -14,7 +14,9 @@ public class JailRelatedActionController {
     public JailRelatedActionController(JailRelatedAction action){
         this.j = action;
     }
-    public JailRelatedActionController(){}
+    public JailRelatedActionController(Player player){
+        this.j=new JailRelatedAction(player);
+    }
 
     public void chooseHowToGetOut(Player p){
         //1 throw double
