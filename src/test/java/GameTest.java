@@ -49,6 +49,7 @@ public class GameTest{
     @Test
     @DisplayName("Test if the game could ask the players take turns to play the game.")
     public void testTakeTurn(){
+        game.board=new Board();
         game.currentRound=1;
         game.players=new Player[2];
         game.players[0]=new Player(1,"A");
@@ -58,7 +59,7 @@ public class GameTest{
         game.currentPlayers[1]=2;
         game.currentPlayer=1;
 
-        game.takeTurn();
+        game.takeTurn(game.players[0]);
         assertEquals(2, game.currentPlayer,"It is successfully go to the next part");
 
     }

@@ -13,6 +13,8 @@ class LandSquareTest {
     @DisplayName("The initialization of LandSquareTest")
     public void setUp(){
         land = new LandSquare("CENTRAL", 800, 90,1);
+        Player p = new Player(1,"A");
+        land.setOwner(p);
     }
     /*
     @Test
@@ -32,21 +34,23 @@ class LandSquareTest {
     @Test
     @DisplayName("Test the setter and getter of owner in LandSquare")
     public void testOwner(){
-        Player p = new Player();
-        land.setOwner(p);
         Assertions.assertNotNull(land.getOwner());
     }
 
     @Test
     @DisplayName("Test the upateMoney of LandSquare")
     public void testUpdateMoney(){
-        Player renter = new Player();
+        Player renter = new Player(2,"B");
+
+        int rent = land.getRent();
+
         int m1 = renter.getMoney();// renter's money
         int m2 = land.getOwner().getMoney();// player's money
-        int rent = land.getRent();
         land.updateMoney(renter);// pay rent to the owner
         // to check whether the rent has been paid and received
-        Assertions.assertTrue(m1 == (renter.getMoney() - rent) && m2 == (land.getOwner().getMoney() + rent) );
+        Assertions.assertTrue(m1 == (renter.getMoney() + rent) && m2 == (land.getOwner().getMoney() - rent) );
+
+
     }
 
 }
