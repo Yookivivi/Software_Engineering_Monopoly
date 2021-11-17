@@ -8,6 +8,7 @@ public class JailRelatedAction extends ActionController {
     public JailRelatedAction(Player player) {
         super(player);
         this.dice = new Dice();
+        this.dice.rollDice();
     }
 
 

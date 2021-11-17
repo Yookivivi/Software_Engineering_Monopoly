@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class JailRelatedActionController {
     private JailRelatedAction j;
     private JailRelatedView jailview = new JailRelatedView();
+    public int choice;
 
     public JailRelatedActionController(JailRelatedAction action){
         this.j = action;
@@ -23,7 +24,7 @@ public class JailRelatedActionController {
         //2 pay fine
         jailview.printChooseMessage();
         Scanner s= new Scanner(System.in);
-        int choice = s.nextInt();
+        choice = s.nextInt();
         while(choice != 1 && choice !=2){
             jailview.printInvalidChoiceMessage();
             s =new Scanner(System.in);
@@ -32,6 +33,13 @@ public class JailRelatedActionController {
         if (choice == 1){
             jailview.printTrowDoubleMessage(p.getName());
             j.updateInJail_R(p);
+            jailview.printDiceMessage(j.dice.dice1, j.dice.dice2);
+            if(j.getrollDouble(j.dice)){
+                jailview.printSuccessThrowDoubleMessage(p.getName());
+            }
+            else{
+                jailview.printFailThrowDoubleMessage(p.getName());
+            }
         }
         else{
             jailview.printPayFeeMessage(p.getName());
