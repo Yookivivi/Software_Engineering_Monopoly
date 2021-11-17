@@ -39,6 +39,7 @@ public class PlayerView {
     public void printPlayerPosition(Player p, Board board){
         replacePrint("Player " + p.getId() + ": "+ p.getName());
         replacePrint("Money: "+ p.getMoney());
-        replacePrint("Location: " + String.valueOf(p.getPosition()) + " ("+board.squares[p.getPosition()-1].getName()+")");
+        replacePrint("Location: " + String.valueOf(p.getPosition()) + " ("+board.squares[p.getPosition()].getName()+")");
+        
     }
 }
