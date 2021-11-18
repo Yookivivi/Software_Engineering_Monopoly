@@ -12,6 +12,10 @@ public class BoardController implements Serializable {
         this.board = b;
         this.boardView = bw;
     }
+
+    /**
+     * controller to control the boardView to print the board
+     */
     public void printBoard(){
         boardView.printBoard(board);
     }

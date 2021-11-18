@@ -9,14 +9,6 @@ public class Go extends Square implements Serializable{
         super(position);
         this.setName("GO");
     }
-    /**
-     * Give the player 1500 hkd when they pass through the square
-     * @param p
-     */
-    public void updateMoney(Player p){
-        int money = p.getMoney();
-        p.setMoney(money + award);
-    }
 
     /**
      * take effect on the player when the player is on the Go square
@@ -24,7 +16,6 @@ public class Go extends Square implements Serializable{
      * @return
      */
     public int takeEffect(Player p){
-       // updateMoney(p);
         return 0;
     }
 }

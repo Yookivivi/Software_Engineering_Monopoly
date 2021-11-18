@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 
 public class Board implements Serializable{
-    public Square[] squares;
+    public Square[] squares; // the square array in the Board
 
     /**
      * the constructor of the class Board
