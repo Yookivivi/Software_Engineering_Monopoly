@@ -31,15 +31,8 @@ public class JailRelatedActionController {
         }
         if (choice == 1){//roll double
             jailview.printTrowDoubleMessage(p.getName());
-            j.updateInJail_R(p);
             jailview.printDiceMessage(j.dice.dice1, j.dice.dice2, j.dice.totalDice);
-            if(j.getrollDouble()){//successfully roll double
-                jailview.printSuccessThrowDoubleMessage(p.getName());
-                //j.updatePosition(p,p.getPosition()+j.dice.totalDice);
-            }
-            else{//fail to roll double
-                jailview.printFailThrowDoubleMessage(p.getName());
-            }
+            j.updateInJail_R(p);
         }
         else{// pay fee
             jailview.printPayFeeMessage(p.getName());

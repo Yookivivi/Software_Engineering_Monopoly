@@ -1,9 +1,12 @@
 package Model;
 
+import View.JailRelatedView;
+
 public class JailRelatedAction extends ActionController {
     private boolean rollDouble;
     private Player p;
     public Dice dice;
+    private JailRelatedView view = new JailRelatedView();
 
     public JailRelatedAction(Player player) {
         super(player);
@@ -31,19 +34,22 @@ public class JailRelatedAction extends ActionController {
         if(getrollDouble()){
             p.setInJail(false);
             updatePosition(p,p.getPosition()+ dice.totalDice);
+            view.printSuccessThrowDoubleMessage(p.getName());
         }
         //judge the round in jail
         else{
             //if the player does not throw doubles by her third turn, she must pay fine and then get out of jail
-            System.out.println("inJailRound" + p.getInJailRound());
+            //System.out.println("inJailRound" + p.getInJailRound());
+            view.printFailThrowDoubleMessage(p.getName());
             if(p.getInJailRound() == 3){
                 p.setInJail(false);
                 updateMoney(p,-fine);
+                view.printPayFeeMessage(p.getName());
                 updatePosition(p,p.getPosition()+ dice.totalDice);
             }
             else{
                 p.setInJailRound(p.getInJailRound()+1);
-                System.out.println("current round"+p.getInJailRound());
+                //System.out.println("current round"+p.getInJailRound());
                 p.setInJail(true);
             }
 
