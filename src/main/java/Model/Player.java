@@ -2,6 +2,10 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for implementation of player
+ */
+
 public class Player implements Serializable{
     private int id;
     private String name;
@@ -12,18 +16,23 @@ public class Player implements Serializable{
     private boolean isOut = false;// whether the player is out of the game
     private Property propertyList = new Property(); // property owned by the player
 
-    // constructor
+    /**
+     * Constructor for Player
+     * @param id player's id
+     * @param name player's name
+     */
     public Player(int id, String name){
         this.id = id;
         this.name = name;
     }
-    public Player(){
-    }
+    public Player(){ };
 
+    /**
+     * setters and getters for id / name / inJail / inJailRound / money / position / isOut / propertyList
+     */
     public void setId(int id){
         this.id = id;
     }
-
     public int getId(){
         return this.id;
     }
