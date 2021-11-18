@@ -132,9 +132,32 @@ public class GameTest{
         String[] output=game.printWinner();
         assertEquals("Alice",output[0],"The winner 1 is correct!");
         assertEquals("Cindy",output[1],"The winner 2 is correct!");
+    }
 
+    @Test
+    @DisplayName("Test if game can be correctly saved and loaded")
+    public void testSaveAndLoad(){
+        game.players=new Player[3];
+        game.currentPlayers=new int[3];
+        Player player1=new Player(1, "Alan");
+        Player player2=new Player(2, "Bob");
+        Player player3=new Player(3, "Clan");
+        game.players[0]=player1;
+        game.players[1]=player2;
+        game.players[2]=player3;
+        game.currentPlayers[0]=0;
+        game.currentPlayers[1]=1;
+        game.currentPlayers[2]=3;
 
+        game.saveGame("testSave");
+        File saveFile = new File("save/testSave.dat");
+        Game loadGame = game.loadGame(saveFile);
 
+        assertEquals(3, loadGame.players.length, "The number of players should be 3");
+        assertEquals(3, loadGame.currentPlayers.length, "The number of current players should be 3");
+        assertEquals("Alan", loadGame.players[0].getName(), "The first player is Alan");
+        assertEquals("Bob", loadGame.players[1].getName(), "The second player is Bob");
+        assertEquals("Clan", loadGame.players[2].getName(), "The third player is Clan");
     }
   
 }
