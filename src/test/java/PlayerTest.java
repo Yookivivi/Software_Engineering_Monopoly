@@ -71,7 +71,7 @@ public class PlayerTest {
     public void testPosition(){
         player.setPosition(1);
         assertEquals(1, player.getPosition(), "Player's position should be 1");
-        
+
         player.setPosition(20);
         assertEquals(20, player.getPosition(), "Player's position should be 20");
 
