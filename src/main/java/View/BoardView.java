@@ -35,7 +35,11 @@ public class BoardView implements Serializable {
     public void printPosition(int position){
         String format = "|                 ";
         String input = String.valueOf(position);
-        String output = format.substring(0,9) + input + format.substring(9+input.length(),format.length());
+        String output;
+        if(position/10 > 0)
+            output = format.substring(0,8) + input + format.substring(8+input.length(),format.length());
+        else
+            output = format.substring(0,9) + input + format.substring(9+input.length(),format.length());
         System.out.print(output);
     }
     /**
