@@ -2,6 +2,10 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for InJail square implementation
+ */
+
 public class InJail extends Square implements Serializable{
     /**
      * when player go to the 6th square, they do nothing
@@ -12,6 +16,10 @@ public class InJail extends Square implements Serializable{
         return 0;
     }
 
+    /**
+     * Constructor for InJail
+     * @param position position of InJail square
+     */
     public InJail(int position){
         super(position);
         this.setName("IN JAIL");

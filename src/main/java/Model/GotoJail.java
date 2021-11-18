@@ -2,13 +2,22 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for GotoJail square implementation
+ */
+
 public class GotoJail extends Square implements Serializable{
     public int inJailPosition = 6; // the position of the jail
 
+    /**
+     * Constructor for GotoJail
+     * @param position position of GotoJail square
+     */
     public GotoJail(int position){
         super(position);
         this.setName("GO TO JAIL");
     }
+
     /**
      * let the player on the GotoJail go to jail
      * @param p the player on the GotoJail square

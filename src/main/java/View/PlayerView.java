@@ -39,7 +39,11 @@ public class PlayerView {
     public void printPlayerPosition(Player p, Board board){
         replacePrint("Player " + p.getId() + ": "+ p.getName());
         replacePrint("Money: "+ p.getMoney());
-        replacePrint("Location: " + String.valueOf(p.getPosition()) + " ("+board.squares[p.getPosition()-1].getName()+")");
+
+        if(p.getPosition() == 6 && p.getInJail() == false)// case: when the player is at inJail but they are not in jail actually
+            replacePrint("Location: " + String.valueOf(p.getPosition()) + " (JUST VISITING)");
+        else
+            replacePrint("Location: " + String.valueOf(p.getPosition()) + " ("+board.squares[p.getPosition()-1].getName()+")");
 
     }
 }

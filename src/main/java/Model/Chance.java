@@ -3,18 +3,27 @@ package Model;
 import java.util.Random;
 import java.io.Serializable;
 
+/**
+ * This class is for Chance square implementation
+ */
+
 public class Chance extends Square implements Serializable{
     private int maxLoseAmount = 300; //the maximum amount to lose normally 300
     private int maxGainAmount = 200; //the maximum amount to gain normally 200
 
+    /**
+     * Constructor for Chance
+     * @param position position of this square
+     */
     public Chance(int position){
         super(position);
         this.setName("CHANCE");
     }
+
     /**
      * let the player gain money or lose money randomly, and the upper bound of gain and lose are defined by maxGainAmount
      * and maxLoseAmount
-     * @param p
+     * @param p action related player
      */
     public void updateMoney(Player p){
         Random rand = new Random();

@@ -2,6 +2,10 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for the land square implementation
+ */
+
 public class LandSquare extends Square implements Serializable{
     private Player owner;// owner of the property
     private int rent;// rent of the property
@@ -21,6 +25,9 @@ public class LandSquare extends Square implements Serializable{
         this.owner = null;
     }// initialize the land square (name, rent and price)
 
+    /**
+     * setters and getters for owner / price / rent
+     */
     public void setOwner(Player player){
         this.owner = player;
     } // setter of the owner

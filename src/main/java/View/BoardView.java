@@ -16,13 +16,22 @@ public class BoardView implements Serializable {
             System.out.print(" ");
     }
 
+    public void printPosition(int position){
+        String format = "|                 ";
+        String input = String.valueOf(position);
+        String output = format.substring(0,9) + input + format.substring(9+input.length(),format.length());
+        System.out.print(output);
+    }
     /**
      * print the squareName that is in the middle
      * @param s1
      * @param s2
      */
     public void printMiddleSquare(Square s1, Square s2){
-        System.out.println("|                 |                                                                       |                 |");
+        printPosition(s1.getPosition());
+        System.out.print("|                                                                       ");
+        printPosition(s2.getPosition());
+        System.out.println("|");
 
         printName(s1.getName());
         System.out.print("|                                                                       ");
@@ -59,7 +68,12 @@ public class BoardView implements Serializable {
     public void printBoard(Board board){
         // print the first row of squares(11-16)
         System.out.println("-------------------------------------------------------------------------------------------------------------");
-        System.out.println("|                 |                 |                 |                 |                 |                 |");
+       // System.out.println("|                 |                 |                 |                 |                 |                 |");
+        for(int i = 10; i < 16; i++) {
+            printPosition(i+1);
+        }
+        System.out.println("|");
+
         for(int i = 10; i < 16; i++){
            printName(board.squares[i].getName());
         }
@@ -80,7 +94,12 @@ public class BoardView implements Serializable {
 
         //print the bottom squares(1-6)
         System.out.println("-------------------------------------------------------------------------------------------------------------");
-        System.out.println("|                 |                 |                 |                 |                 |                 |");
+        //System.out.println("|                 |                 |                 |                 |                 |                 |");
+        for(int i = 5; i >= 0; i--){
+            printPosition(i+1);
+        }
+        System.out.println("|");
+
         for(int i = 5; i >= 0; i--){
             printName(board.squares[i].getName());
         }

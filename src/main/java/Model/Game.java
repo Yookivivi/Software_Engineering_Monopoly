@@ -7,9 +7,12 @@ import Controller.BoardController;
 import Controller.PlayerController;
 import View.*;
 
+/**
+ * This class is for game implementation(with all data and operations in each game)
+ */
+
 public class Game implements Serializable{
     private GameView view;
-    
     public int playerNum; //the number of players
     public int currentRound = 1; //current round
     public int[] currentPlayers; //the existing players(which have not been week out)
@@ -20,10 +23,17 @@ public class Game implements Serializable{
     public BoardView boardView;//board view
     public BoardController boardController;//board controller
 
+    /**
+     * Constructor for Game
+     */
     public Game(){
         view = new GameView();
-    };//constructor
+    };
 
+    /**
+     * start game initialization
+     * @param input_num number of players
+     */
     public void startGame(int input_num){
         board=new Board();
         playerNum=input_num;
@@ -34,13 +44,22 @@ public class Game implements Serializable{
         boardController = new BoardController(board,boardView);
     };//to start a new game
 
+    /**
+     * add new player to game
+     * @param id id of each player
+     * @param name name of each player
+     */
     public void addNewPlayer(int id, String name){
         Player player=new Player(id, name);
         players[id-1]=player;
         currentPlayers[id-1]=id;
     };//to create the player and add him/her to the players
 
-    // 11/14/21:39
+    /**
+     * load game from existing file
+     * @param file save file
+     * @return Game instance converted from the file
+     */
     public Game loadGame(File file){
         try{
             ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(file));
@@ -54,7 +73,10 @@ public class Game implements Serializable{
         return null;
     };// to load a game
 
-    // 11/14/21:10
+    /**
+     * save game to file
+     * @param name name of file
+     */
     public void saveGame(String name){
         File file = new File("save/"+name+".dat");
         FileOutputStream out;
@@ -70,8 +92,11 @@ public class Game implements Serializable{
         }
     };// to save game
 
+    /**
+     * how to take turn
+     * @param player current player
+     */
     public void takeTurn(Player player){
-
         if(player.getIsOut()){
             int index= Arrays.binarySearch(currentPlayers, currentPlayer);
             int formal_length=currentPlayers.length;
@@ -104,11 +129,11 @@ public class Game implements Serializable{
                 currentPlayer=currentPlayers[index+1];
             }
         }
-
-
     };//to do the next turn
 
-    
+    /**
+     * check whether the game is end
+     */
     public void judgeIsEnd(){
         if(currentPlayers.length==1){
             isEnd=true;
@@ -118,6 +143,10 @@ public class Game implements Serializable{
         }
     };// to judge whether the game is ended
 
+    /**
+     * get list of winners' name
+     * @return  list of winners' name
+     */
     public String[] printWinner(){
         int winner_num=currentPlayers.length;
         String[] winners=new String[winner_num];
