@@ -159,5 +159,4 @@ public class GameTest{
         assertEquals("Bob", loadGame.players[1].getName(), "The second player is Bob");
         assertEquals("Clan", loadGame.players[2].getName(), "The third player is Clan");
     }
-  
 }
