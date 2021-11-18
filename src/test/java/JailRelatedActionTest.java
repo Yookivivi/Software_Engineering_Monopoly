@@ -83,4 +83,16 @@ class JailRelatedActionTest {
         j.updateInJail_R(p);
         Assertions.assertFalse(p.getInJail());
     }
+
+    @Test
+    @DisplayName("Test the third round action")
+    void testThirdRoundAction(){
+        j.currentDice = d;
+        p.setInJailRound(3);
+        d.dice1 = 2;
+        d.dice2 = 3;
+        j.getrollDouble();
+        j.updateInJail_R(p);
+        Assertions.assertFalse(p.getInJail());
+    }
 }
