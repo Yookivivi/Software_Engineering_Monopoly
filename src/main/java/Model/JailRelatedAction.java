@@ -2,19 +2,30 @@ package Model;
 
 import View.JailRelatedView;
 
+/**
+ * This class is for jail related action
+ */
+
 public class JailRelatedAction extends ActionController {
     private boolean rollDouble;
     private Player p;
     public Dice dice;
     private JailRelatedView view = new JailRelatedView();
 
+    /**
+     * Constructor for JailRelatedAction
+     * @param player action related player
+     */
     public JailRelatedAction(Player player) {
         super(player);
         this.dice = new Dice();
         this.dice.rollDice();
     }
 
-
+    /**
+     * roll two dice to get double
+     * @return true: success  false: fail
+     */
     public boolean getrollDouble(){
         if (dice.dice1 == dice.dice2) {
             rollDouble = true;
@@ -26,10 +37,12 @@ public class JailRelatedAction extends ActionController {
     }
 
 
-    // update the players' state of inJail
+    /**
+     * update the players' state of inJail
+     * @param p action related player
+     */
     public void updateInJail_R(Player p) {
         int fine = 150;
-
         //if player throw doubles, she can immediately get out of jail.
         if(getrollDouble()){
             p.setInJail(false);
@@ -56,6 +69,10 @@ public class JailRelatedAction extends ActionController {
         }
     }
 
+    /**
+     * pay fine to get out of jail
+     * @param p action related player
+     */
     public void updateInJail_P(Player p){
         int fine = 150;
         p.setInJail(false);
