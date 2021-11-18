@@ -4,12 +4,16 @@ import View.*;
 
 import java.io.File;
 
+/**
+ * This class controls the main flow of the whole monopoly game
+ */
+
 public class Main {
     public static void main(String[] args){
         GameController ctrl = new GameController();
         GameView view = new GameView();
 
-        File save = new File("save"); // create save directory
+        File save = new File("save"); // The game should firstly ensure that there is a save directory
         if (!save.exists()) {
             boolean b = save.mkdir();
             while(!b){
@@ -29,12 +33,12 @@ public class Main {
             }
             else if (input_num.equals("2")){ // load a game
                 Game game = ctrl.loadGameController();
-                if (game == null){ // no save files
+                if (game == null){ // if there is no save file, start a new game
                     game = new Game();
                     controller = new GameController(game);
                     controller.startGameController();
                 }
-                else{ // load game
+                else{
                     controller = new GameController(game);
                 }
             }
