@@ -11,9 +11,17 @@ public class BoardView implements Serializable {
      * @param name
      */
     public void printName(String name){
-        System.out.print("| "+name);
-        for(int j = name.length(); j <= BoardLength; j++)
-            System.out.print(" ");
+        System.out.print("|");
+        String format = "                 ";
+        int sup;
+        if(name.length()%2 == 0)
+            sup = 1;
+        else
+            sup = 0;
+        int spaceLength = (BoardLength + 2 - name.length())/2;
+
+        String output = format.substring(0,spaceLength) + name + format.substring(format.length()-spaceLength-sup,format.length());
+        System.out.print(output);
     }
 
     public void printPosition(int position){
@@ -52,10 +60,18 @@ public class BoardView implements Serializable {
      */
     public void printPrice(Square square){
         if(square instanceof LandSquare){
-            int price = ((LandSquare)square).getPrice();
-            System.out.print("| HKD "+price);
-            for(int j = String.valueOf(price).length(); j <= BoardLength-4; j++)
-                System.out.print(" ");
+            String price = "HKD "+String.valueOf(((LandSquare)square).getPrice());
+            System.out.print("|");
+            String format = "                 ";
+            int sup;
+            if(price.length()%2 == 0)
+                sup = 1;
+            else
+                sup = 0;
+            int spaceLength = (BoardLength + 2 - price.length())/2;
+
+            String output = format.substring(0,spaceLength) + price + format.substring(format.length()-spaceLength-sup,format.length());
+            System.out.print(output);
         } else{
             System.out.print("|                 ");
         }
