@@ -46,7 +46,7 @@ public class PlayerController {
         if(position>20){//after one circle, go back to the first square and start again
             position-=20;
             player.setMoney(player.getMoney()+1500);//pass go, add money
-            System.out.println(player.getName()+" has passed the GO, and got HKD1500");
+            System.out.println("* "+player.getName()+" has passed the GO, and got HKD1500");
         }
         actionController.updatePosition(player,position);//update the position
         updateSquareController(position);//get the action of this position
