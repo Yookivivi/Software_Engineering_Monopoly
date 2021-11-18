@@ -107,7 +107,7 @@ public class GameController {
         }
 
         if(choice.equals("s")){ // save game
-            if(game.currentPlayer>=game.currentPlayers[current_playerNum-1]){
+            if(game.currentPlayer>game.currentPlayers[current_playerNum-1]){
                 game.currentPlayer=game.currentPlayers[0];
                 game.currentRound++;
             }
