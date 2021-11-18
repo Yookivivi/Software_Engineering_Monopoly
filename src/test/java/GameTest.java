@@ -86,6 +86,68 @@ public class GameTest{
 
     }
 
+    @Test
+    @DisplayName("Test if the game could ask the players take turns to play the game.")
+    public void testTakeTurn3(){
+        game.board=new Board();
+        game.currentRound=1;
+        game.players=new Player[2];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.currentPlayers=new int[2];
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=2;
+        game.currentPlayer=2;
+
+        game.takeTurn(game.players[1]);
+        assertEquals(3, game.currentPlayer,"It is successfully go to the next part");
+
+    }
+
+    @Test
+    @DisplayName("Test if the game could ask the players take turns to play the game.")
+    public void testTakeTurn4(){
+        game.board=new Board();
+        game.currentRound=1;
+        game.players=new Player[3];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.players[2]=new Player(3,"c");
+        game.currentPlayers=new int[3];
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=2;
+        game.currentPlayers[2]=3;
+        game.players[1].setIsOut(true);
+        game.currentPlayer=2;
+
+        game.takeTurn(game.players[1]);
+        assertEquals(3, game.currentPlayer,"It is successfully go to the next part");
+        assertEquals(2, game.currentPlayers.length,"It is successfully go to the next part");
+
+    }
+
+    @Test
+    @DisplayName("Test if the game could ask the players take turns to play the game.")
+    public void testTakeTurn5(){
+        game.board=new Board();
+        game.currentRound=1;
+        game.players=new Player[3];
+        game.players[0]=new Player(1,"A");
+        game.players[1]=new Player(2,"B");
+        game.players[2]=new Player(3,"c");
+        game.currentPlayers=new int[3];
+        game.currentPlayers[0]=1;
+        game.currentPlayers[1]=2;
+        game.currentPlayers[2]=3;
+        game.players[2].setIsOut(true);
+        game.currentPlayer=3;
+
+        game.takeTurn(game.players[2]);
+        assertEquals(4, game.currentPlayer,"It is successfully go to the next part");
+        assertEquals(2, game.currentPlayers.length,"It is successfully go to the next part");
+
+    }
+
 
 
     @Test
