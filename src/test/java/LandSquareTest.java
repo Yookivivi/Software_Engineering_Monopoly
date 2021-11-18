@@ -12,11 +12,11 @@ class LandSquareTest {
     @BeforeEach
     @DisplayName("The initialization of LandSquareTest")
     public void setUp(){
-        land = new LandSquare("CENTRAL", 800, 90,1);
+        land = new LandSquare("CENTRAL", 800, 90,2);
         Player p = new Player(1,"A");
         land.setOwner(p);
     }
-    /*
+
     @Test
     @DisplayName("Test the getPosition of LandSquare")
     public void testLandSquarePosition(){
@@ -30,7 +30,7 @@ class LandSquareTest {
         }
         Assertions.assertTrue(test);
     }
-    */
+
     @Test
     @DisplayName("Test the setter and getter of owner in LandSquare")
     public void testOwner(){
