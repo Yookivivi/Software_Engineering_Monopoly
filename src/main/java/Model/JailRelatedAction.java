@@ -15,6 +15,7 @@ public class JailRelatedAction extends ActionController {
     }
 
 
+    // judge whether both dice come out the same face up
     public boolean getrollDouble(){
         if (dice.dice1 == dice.dice2) {
             rollDouble = true;
@@ -26,7 +27,7 @@ public class JailRelatedAction extends ActionController {
     }
 
 
-    // update the players' state of inJail
+    // update the players' state of inJail,suppose the player choose to roll double
     public void updateInJail_R(Player p) {
         int fine = 150;
 
@@ -39,7 +40,6 @@ public class JailRelatedAction extends ActionController {
         //judge the round in jail
         else{
             //if the player does not throw doubles by her third turn, she must pay fine and then get out of jail
-            //System.out.println("inJailRound" + p.getInJailRound());
             view.printFailThrowDoubleMessage(p.getName());
             if(p.getInJailRound() == 3){
                 p.setInJail(false);
@@ -49,13 +49,13 @@ public class JailRelatedAction extends ActionController {
             }
             else{
                 p.setInJailRound(p.getInJailRound()+1);
-                //System.out.println("current round"+p.getInJailRound());
                 p.setInJail(true);
             }
 
         }
     }
 
+    // update the players' state of inJail,suppose the player choose to pay fine
     public void updateInJail_P(Player p){
         int fine = 150;
         p.setInJail(false);
