@@ -8,7 +8,7 @@ public class LandSquare extends Square implements Serializable{
     private int price;// price of the property
 
     /**
-     * the constructor of LnadSquare
+     * the constructor of LandSquare
      * @param n name of the property
      * @param r the rent of the property
      * @param p the price of the property
@@ -44,7 +44,7 @@ public class LandSquare extends Square implements Serializable{
         int mOwner = owner.getMoney();
         renter.setMoney(mRenter - rent);//pay rent
         owner.setMoney(mOwner + rent);//to the owner
-        System.out.println("* "+renter.getName() + " pay HKD" + rent + " to " + owner.getName());
+        System.out.println("* "+renter.getName() + " pays HKD" + rent + " to " + owner.getName());
     }
 
     /**

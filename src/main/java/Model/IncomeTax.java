@@ -16,7 +16,7 @@ public class IncomeTax extends Square implements Serializable{
     public void updateMoney(Player p){
         int tax = (int)(p.getMoney() * percentage)/10 * 10; //calculate the tax (rounded down to a multiple of 10)
         p.setMoney(p.getMoney() - tax);
-        System.out.println("* "+p.getName()+"has paid HKD"+tax+" for tax");// print how much money the player should pay
+        System.out.println("* "+p.getName()+" has paid HKD"+tax+" for tax");// print how much money the player should pay
     }//change the player's money
 
     /**

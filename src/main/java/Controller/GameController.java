@@ -8,11 +8,18 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * This class is the controller for users during the monopoly game
+ */
 
 public class GameController {
     private Game game;
     private GameView gameView = new GameView();
 
+    /**
+     * Constructor for GameController
+     * @param game Game instance to manipulate on
+     */
     public GameController(Game game){
         this.game = game;
     }
@@ -22,6 +29,10 @@ public class GameController {
         return game.isEnd;
     }
 
+    /**
+     * end game interactions with user
+     * @return user's choice
+     */
     public String endGame(){
         gameView.printContinueMessage();
         Scanner s = new Scanner(System.in);
@@ -37,7 +48,10 @@ public class GameController {
         return choice;
     }
 
-    // 11/14/21:58
+    /**
+     * choose start game mode (start new game / load game) or exit game
+     * @return user's choice
+     */
     public String chooseBeginWay(){//choose the way that begin game
         gameView.printChooseModeMessage();
         Scanner S=new Scanner(System.in);
@@ -50,6 +64,10 @@ public class GameController {
         return input_num;
     }
 
+    /**
+     * game initialization interactions with users
+     * - get player number from user and store it
+     */
     public void startGameController(){
         gameView.printStartGameMessage();
         Scanner S=new Scanner(System.in);
@@ -63,6 +81,11 @@ public class GameController {
         addNewPlayerController(input_num);
     }
 
+    /**
+     * game initialization interactions with users
+     * - get each player's name from user and store it
+     * @param input_num num of players
+     */
     public void addNewPlayerController(int input_num){
         for(int i=0; i<input_num; i++){
             gameView.printAddNewPlayerMessage(i+1);
@@ -73,7 +96,10 @@ public class GameController {
         }
     }
 
-    // 11/14/21:49
+    /**
+     * controller to save game
+     * @return 0: exit game  1: continue game
+     */
     public int saveGameController(){ // return 0: exit 1: continue
         gameView.printTurnEndMessage();
         Scanner S=new Scanner(System.in);
@@ -88,7 +114,7 @@ public class GameController {
             S=new Scanner(System.in);
             String name=S.nextLine(); // name should not include format (e.g. .txt)
             File file = new File("save/"+name+".dat");
-            if (file.exists()){
+            if (file.exists()){ // overwrite file
                 gameView.printSaveOverwriteMessage();
                 S = new Scanner(System.in);
                 String overwriteChoice = S.nextLine();
@@ -117,12 +143,15 @@ public class GameController {
         }
     }
 
-   // 11/14/21:33
+    /**
+     * controller to load game
+     * @return Game instance loaded from local files
+     */
     public Game loadGameController(){
         File dir = new File("save");
         File[] fs = dir.listFiles();
 
-        if (fs.length == 0){
+        if (fs.length == 0){ // no files in save directory
             gameView.printNoSaveMessage();
             return null;
         }
@@ -142,28 +171,30 @@ public class GameController {
                 s = new Scanner(System.in);
                 choice = s.nextInt();
             }
-            return game.loadGame(fs[choice-1]);
+            return game.loadGame(fs[choice-1]); // load game accordingly
         }
     }
 
-    // new
+    /**
+     * controller to take turn within game
+     */
     public void takeTurnController(){
         here:
         while(!game.isEnd){
             int current_playerNum=game.currentPlayers.length;
             gameView.printTakeTurnMessage(game.currentRound);
-            if(game.currentPlayer>game.currentPlayers[current_playerNum-1]){//if all the player in this round has played
-                game.currentPlayer=game.currentPlayers[0];//go back to the first player
+            if(game.currentPlayer>game.currentPlayers[current_playerNum-1]){ // if all the player in this round has played
+                game.currentPlayer=game.currentPlayers[0]; // go back to the first player
             }
             while (game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
                 Player player=game.players[game.currentPlayer-1];
                 PlayerController playerController=new PlayerController(player, game.board);
                 playerController.startTurnController();
-                //takeTurn
+                // takeTurn
                 game.takeTurn(player);
-                //printboard
+                // printBoard
                 game.boardController.printBoard();
-                //print player's information
+                // print player's information
                 gameView.printPlayersPosition(game);
                 current_playerNum=game.currentPlayers.length;
                 int exit = saveGameController();
@@ -173,22 +204,24 @@ public class GameController {
                     }
                     break here;
                 }
-                //judge if game is end.
+                // judge if game is end
                 game.judgeIsEnd();
-                if(game.isEnd){//game is end
+                if(game.isEnd){ // game is end
                     break here;
                 }
 
             }
             game.currentRound++;
-            //judge if game is end.
+            // judge if game is end.
             game.judgeIsEnd();
             if (game.isEnd) break;
         }
         if (game.isEnd) printWinnerController();
     }
 
-
+    /**
+     * print winner messages
+     */
     public void printWinnerController(){
         gameView.printWinnerMessage(game.printWinner(), game.currentPlayers);
     }
