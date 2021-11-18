@@ -17,13 +17,4 @@ public class Go extends Square implements Serializable{
         super(position);
         this.setName("GO");
     }
-
-    /**
-     * take effect on the player when the player is on the Go square
-     * @param p player on Go square
-     * @return 0 for run successfully
-     */
-    public int takeEffect(Player p){
-        return 0;
-    }
 }
