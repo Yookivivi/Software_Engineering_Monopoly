@@ -204,6 +204,7 @@ public class GameController {
                 if (exit == 0){
                     if(game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
                         game.currentPlayer=game.currentPlayers[0];
+                        game.currentRound++;
                     }
                     break here;
                 }
@@ -212,7 +213,6 @@ public class GameController {
                 if(game.isEnd){ // game is end
                     break here;
                 }
-
             }
             game.currentRound++;
             // judge if game is end.

@@ -1,5 +1,9 @@
 package View;
 
+/**
+ * This class is for printing jail related messages
+ */
+
 public class JailRelatedView {
     /*public void printRoundMessage(int round){
         System.out.println("\n*In Jail Round "+round+"\n");

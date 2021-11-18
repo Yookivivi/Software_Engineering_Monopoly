@@ -3,6 +3,10 @@ import Model.*;
 import java.util.Scanner;
 import java.io.Serializable;
 
+/**
+ * This class is for printing messages within each game
+ */
+
 public class GameView implements Serializable{
     public void printChooseModeMessage(){
         System.out.println("* Welcome to Monopoly");
@@ -169,7 +173,7 @@ public class GameView implements Serializable{
 
     /**
      * print the players' information in the game
-     * @param game
+     * @param game game
      */
     public void printPlayersPosition(Game game){
         System.out.println("* Player Information:");
