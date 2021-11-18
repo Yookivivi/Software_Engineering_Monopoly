@@ -31,5 +31,11 @@ class GotoJailTest {
         Assertions.assertEquals(16,gtj.getPosition());
     }
 
+    @Test
+    @DisplayName("Test the take Effect of GotoJail")
+    public void testTakeEffect(){
+        Assertions.assertEquals(0,gtj.takeEffect(p));
+    }
+
 
 }

@@ -12,27 +12,19 @@ class InJailTest {
     @BeforeEach
     @DisplayName("The initialization of InJail Test")
     public void setUp(){
-        ij = new InJail(5);
-        p = new Player();
+        ij = new InJail(6);
+        p = new Player(1,"Tony");
     }
     @Test
     @DisplayName("Test the takeEffect of InJail")
-    public void testInJailPosition(){
+    public void testTakeEffect(){
         Assertions.assertEquals(0,ij.takeEffect(p));
     }
 
-    /*
+
     @Test
     @DisplayName("Test the getPosition of InJail")
     public void testInJailPosition(){
         Assertions.assertEquals(6,ij.getPosition());
     }
-
-    @Test
-    @DisplayName("Test the updateInJail of InJail")
-    public void testUpdateInJail(){
-        ij.updateInJail(p);
-        Assertions.assertFalse(p.getInJail());//whether the player has got out of the jail
-    }
-    */
 }

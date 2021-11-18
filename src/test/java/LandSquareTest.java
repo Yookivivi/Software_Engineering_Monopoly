@@ -8,12 +8,14 @@ import Model.*;
 class LandSquareTest {
 
     private LandSquare land;
+    private Player p,q;
 
     @BeforeEach
     @DisplayName("The initialization of LandSquareTest")
     public void setUp(){
         land = new LandSquare("CENTRAL", 800, 90,2);
-        Player p = new Player(1,"A");
+        p = new Player(1,"A");
+        q = new Player(2,"B");
         land.setOwner(p);
     }
 
@@ -34,7 +36,10 @@ class LandSquareTest {
     @Test
     @DisplayName("Test the setter and getter of owner in LandSquare")
     public void testOwner(){
-        Assertions.assertNotNull(land.getOwner());
+        Assertions.assertEquals(p,land.getOwner());
+        land.setOwner(q);
+        Assertions.assertNotEquals(p,land.getOwner());
+        Assertions.assertEquals(q,land.getOwner());
     }
 
     @Test
@@ -49,8 +54,22 @@ class LandSquareTest {
         land.updateMoney(renter);// pay rent to the owner
         // to check whether the rent has been paid and received
         Assertions.assertTrue(m1 == (renter.getMoney() + rent) && m2 == (land.getOwner().getMoney() - rent) );
-
-
     }
+
+    @Test
+    @DisplayName("Test take effect of LandSquare")
+    public void testTakeEffect(){
+        Assertions.assertEquals(0, land.takeEffect(p));
+        Assertions.assertEquals(0, land.takeEffect(q));;
+        LandSquare land2 = new LandSquare("home",100,10,2);
+        Assertions.assertEquals(1, land2.takeEffect(p));
+    }
+
+    @Test
+    @DisplayName("Test get price of LandSquare")
+    public void testPrice(){
+        Assertions.assertEquals(800,land.getPrice());
+    }
+
 
 }

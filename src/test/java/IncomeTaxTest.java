@@ -12,8 +12,8 @@ class IncomeTaxTest {
     @BeforeEach
     @DisplayName("The initialization of IncomeTaxTest")
     public void setUp(){
-        p = new Player();
-        it = new IncomeTax(3);
+        p = new Player(1, "Tony");
+        it = new IncomeTax(4);
     }
 
     @Test
@@ -24,11 +24,17 @@ class IncomeTaxTest {
         int m2 = p.getMoney();//real money after he or she pay
         Assertions.assertEquals(m1, m2);
     }
-    /*
+
     @Test
     @DisplayName("Test the getPosition of IncomeTax")
     public void testTaxPosition(){
         Assertions.assertEquals(4,it.getPosition());
     }
-    */
+
+    @Test
+    @DisplayName("Test the take Effect of IncomeTax")
+    public void testTakeEffect(){
+        Assertions.assertEquals(0, it.takeEffect(p));
+    }
+
 }

@@ -8,7 +8,7 @@ class FreeParkingTest {
     @Test
     @DisplayName("Test the takeEffect of FreeParking")
     public void parkingTest(){
-        Player p = new Player();
+        Player p = new Player(1,"Tony");
         FreeParking free = new FreeParking(10);
         Assertions.assertEquals(0,free.takeEffect(p));
     }
