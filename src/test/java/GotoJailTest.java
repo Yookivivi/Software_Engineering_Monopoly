@@ -13,7 +13,7 @@ class GotoJailTest {
     @DisplayName("The initialization of GoToJail Test")
     public void setup() {
        p = new Player();
-       gtj = new GotoJail(15);
+       gtj = new GotoJail(16);
     }
 
     @Test
@@ -21,36 +21,15 @@ class GotoJailTest {
     public void testUpdateInJail(){
         gtj.takeEffect(p);
         Assertions.assertTrue(p.getInJail());// whether the player has gone to jail or not
+        Assertions.assertEquals(6,p.getPosition());
+        Assertions.assertEquals(1,p.getInJailRound());
     }
-    /*
+
     @Test
     @DisplayName("Test the get position of GotoJail")
     public void testGoToJailPosition(){
-        Assertions.assertEquals(6,gtj.getPosition());
-    }
-    @Test
-    @DisplayName("Test the updatePosition of GotoJail")
-    public void testUpdatePosition(){
-        int position = 13;
-        //gtj.updatePosition(p,position);
-        Assertions.assertEquals(13,p.getPosition());
+        Assertions.assertEquals(16,gtj.getPosition());
     }
 
-    @Test
-    @DisplayName("Test wrong(lower) input for updatePosition of GotoJail")
-    public void testWrongUpdateLow(){
-        Assertions.assertThrows(RuntimeException.class, () ->{
-           // gtj.updatePosition(p,-1);
-        });
-    }
-    @Test
-    @DisplayName("Test wrong(higher) input for updatePosition of GotoJail")
-    public void testWrongUpdateHigh(){
-        Assertions.assertThrows(RuntimeException.class, () ->{
-         //   gtj.updatePosition(p,20);
-        });
-    }
-
-    */
 
 }

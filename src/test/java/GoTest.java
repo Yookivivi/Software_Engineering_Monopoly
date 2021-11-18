@@ -13,13 +13,19 @@ class GoTest {
     @DisplayName("The initialization of the GO test")
     public void setUp(){
         go = new Go(1);
-        p = new Player();
+        p = new Player(1, "Tony");
     }
 
     @Test
     @DisplayName("Test the getPosition of GO")
     public void testGoPosition(){
         Assertions.assertEquals(1,go.getPosition());
+    }
+
+    @Test
+    @DisplayName("Test the takeEffect of GO")
+    public void testGoTake(){
+        Assertions.assertEquals(0,go.takeEffect(p));
     }
 
 }

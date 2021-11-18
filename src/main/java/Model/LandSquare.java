@@ -54,10 +54,13 @@ public class LandSquare extends Square implements Serializable{
      * @return 0 for normal action, 1 for ask user input
      */
     public int takeEffect(Player p){ //squares take effect on the player
-        if(this.owner != null)// if it has an owner
-            updateMoney(p);
-        else// do not have an owner
-            return 1;
+        if(this.owner != null){ // if it has a owner
+            if(this.owner != p)// if the owner is not the player
+                updateMoney(p);
+        }
+        else{
+            return 1;// do not have an owner
+        }
         return 0;
     }
 }

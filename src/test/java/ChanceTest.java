@@ -27,4 +27,11 @@ class ChanceTest {
         Assertions.assertTrue((m1-300) <= m2 && m2 <= (m1+200));
     }
 
+    @Test
+    @DisplayName("Test the takeEffect of Chance")
+    public void testTakeEffect(){
+        int result = chance.takeEffect(p);
+        Assertions.assertEquals(0,result);
+    }
+
 }
