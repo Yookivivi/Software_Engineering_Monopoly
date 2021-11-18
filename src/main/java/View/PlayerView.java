@@ -1,21 +1,22 @@
 package View;
 import Model.*;
-public class PlayerView {
 
+/**
+ * This class is for printing player information within each turn
+ */
+
+public class PlayerView {
     public void printPlayerTurnMessage(int player_id, String name){
         System.out.println("* Now it is the turn of player with ID "+player_id+", Name "+name+": \n");
     }
-
     public void printInJailMessage(int inJailRound){
         System.out.println("\n* Now you are in Jail, Round: "+inJailRound);
     }
-
     public void printDiceMessage(int dice1, int dice2, int totalDice){
         System.out.println("* Dice1: "+dice1);
         System.out.println("* Dice2: "+dice2);
         System.out.println("* Total: "+totalDice);
     }
-
     public void printUpdatedSquareMessage(int position, String name){
         System.out.println("\n* Now you are in the position: "+String.valueOf(position));
         System.out.println("* This Square is "+name);
@@ -23,7 +24,7 @@ public class PlayerView {
 
     /**
      * to print information in the format of "｜                      ｜"
-     * @param input
+     * @param input input string
      */
     public void replacePrint(String input){
         String format = "｜                                ｜";
@@ -33,8 +34,8 @@ public class PlayerView {
 
     /**
      * to print information of a player
-     * @param p
-     * @param board
+     * @param p player
+     * @param board board
      */
     public void printPlayerPosition(Player p, Board board){
         replacePrint("Player " + p.getId() + ": "+ p.getName());

@@ -3,19 +3,35 @@ import Model.*;
 
 import java.io.Serializable;
 
+/**
+ * This class is for printing board
+ */
+
 public class BoardView implements Serializable {
     public int BoardLength = 15;
 
     /**
      * print the name in the format
-     * @param name
+     * @param name name of square
      */
     public void printName(String name){
-        System.out.print("| "+name);
-        for(int j = name.length(); j <= BoardLength; j++)
-            System.out.print(" ");
+        System.out.print("|");
+        String format = "                 ";
+        int sup;
+        if(name.length()%2 == 0)
+            sup = 1;
+        else
+            sup = 0;
+        int spaceLength = (BoardLength + 2 - name.length())/2;
+
+        String output = format.substring(0,spaceLength) + name + format.substring(format.length()-spaceLength-sup,format.length());
+        System.out.print(output);
     }
 
+    /**
+     * print position of a square
+     * @param position position of a square
+     */
     public void printPosition(int position){
         String format = "|                 ";
         String input = String.valueOf(position);
@@ -24,8 +40,8 @@ public class BoardView implements Serializable {
     }
     /**
      * print the squareName that is in the middle
-     * @param s1
-     * @param s2
+     * @param s1 name of square
+     * @param s2 position of square
      */
     public void printMiddleSquare(Square s1, Square s2){
         printPosition(s1.getPosition());
@@ -48,14 +64,22 @@ public class BoardView implements Serializable {
     /**
      * if the square is a LandSquare, print the price
      * Otherwise, print spaces
-     * @param square
+     * @param square square
      */
     public void printPrice(Square square){
         if(square instanceof LandSquare){
-            int price = ((LandSquare)square).getPrice();
-            System.out.print("| HKD "+price);
-            for(int j = String.valueOf(price).length(); j <= BoardLength-4; j++)
-                System.out.print(" ");
+            String price = "HKD "+String.valueOf(((LandSquare)square).getPrice());
+            System.out.print("|");
+            String format = "                 ";
+            int sup;
+            if(price.length()%2 == 0)
+                sup = 1;
+            else
+                sup = 0;
+            int spaceLength = (BoardLength + 2 - price.length())/2;
+
+            String output = format.substring(0,spaceLength) + price + format.substring(format.length()-spaceLength-sup,format.length());
+            System.out.print(output);
         } else{
             System.out.print("|                 ");
         }
@@ -63,7 +87,7 @@ public class BoardView implements Serializable {
 
     /**
      * a function print the board
-     * @param board
+     * @param board board
      */
     public void printBoard(Board board){
         // print the first row of squares(11-16)
