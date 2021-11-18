@@ -2,6 +2,10 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for game board implementation
+ */
+
 public class Board implements Serializable{
     public Square[] squares; // the square array in the Board
 

@@ -2,13 +2,22 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for IncomeTax square implementation
+ */
+
 public class IncomeTax extends Square implements Serializable{
     private double percentage = 0.1;// Tax percentage, normally = 0.1
 
+    /**
+     * Constructor for IncomeTax
+     * @param position position of IncomeTax square
+     */
     public IncomeTax(int position){
         super(position);
         this.setName("INCOME TAX");
     }
+
     /**
      * let the player pay the tax
      * @param p the player on the Income Tax

@@ -2,6 +2,10 @@ package Model;
 
 import java.io.Serializable;
 
+/**
+ * This class is for FreeParking square implementation
+ */
+
 public class FreeParking extends Square implements Serializable{
     /**
      * when the player is on the free parking, do nothing
@@ -11,6 +15,11 @@ public class FreeParking extends Square implements Serializable{
     public int takeEffect(Player p){
         return 0;
     }
+
+    /**
+     * Constructor for FreeParking
+     * @param position position of FreeParking square
+     */
     public FreeParking(int position){
         super(position);
         this.setName("FREE PARKING");
