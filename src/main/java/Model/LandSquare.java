@@ -51,7 +51,7 @@ public class LandSquare extends Square implements Serializable{
         int mOwner = owner.getMoney();
         renter.setMoney(mRenter - rent);//pay rent
         owner.setMoney(mOwner + rent);//to the owner
-        System.out.println("* "+renter.getName() + " pays HKD" + rent + " to " + owner.getName());
+        System.out.println("* "+renter.getName() + " pays HKD " + rent + " to " + owner.getName());
     }
 
     /**
