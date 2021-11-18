@@ -3,12 +3,16 @@ import Model.*;
 
 import java.io.Serializable;
 
+/**
+ * This class is for printing board
+ */
+
 public class BoardView implements Serializable {
     public int BoardLength = 15;
 
     /**
      * print the name in the format
-     * @param name
+     * @param name name of square
      */
     public void printName(String name){
         System.out.print("| "+name);
@@ -16,6 +20,10 @@ public class BoardView implements Serializable {
             System.out.print(" ");
     }
 
+    /**
+     * print position of a square
+     * @param position position of a square
+     */
     public void printPosition(int position){
         String format = "|                 ";
         String input = String.valueOf(position);
@@ -24,8 +32,8 @@ public class BoardView implements Serializable {
     }
     /**
      * print the squareName that is in the middle
-     * @param s1
-     * @param s2
+     * @param s1 name of square
+     * @param s2 position of square
      */
     public void printMiddleSquare(Square s1, Square s2){
         printPosition(s1.getPosition());
@@ -48,7 +56,7 @@ public class BoardView implements Serializable {
     /**
      * if the square is a LandSquare, print the price
      * Otherwise, print spaces
-     * @param square
+     * @param square square
      */
     public void printPrice(Square square){
         if(square instanceof LandSquare){
@@ -63,7 +71,7 @@ public class BoardView implements Serializable {
 
     /**
      * a function print the board
-     * @param board
+     * @param board board
      */
     public void printBoard(Board board){
         // print the first row of squares(11-16)

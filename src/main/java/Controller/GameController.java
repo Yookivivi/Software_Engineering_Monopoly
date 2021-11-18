@@ -213,7 +213,6 @@ public class GameController {
                 if(game.isEnd){ // game is end
                     break here;
                 }
-
             }
             game.currentRound++;
             // judge if game is end.
