@@ -32,6 +32,7 @@ public class PropertyRelatedActionController {
      * @param landSquare landSquare to be manipulated on
      */
     public void choosebuyland(LandSquare landSquare){
+        //if the player does not have enough money to buy the land
         if(player.getMoney() < landSquare.getPrice()){
             propertyView.printNoMoneyMessage();
         }
@@ -39,15 +40,19 @@ public class PropertyRelatedActionController {
             propertyView.printChooseBuyMessage(landSquare);
             Scanner s = new Scanner(System.in);
             String input = s.nextLine();
+            //invalid input
             while (!input.equals("Y") && !input.equals("N")) {
                 propertyView.printInvalidChoiceMessage();
                 s = new Scanner(System.in);
                 input = s.nextLine();
             }
+            //player choose to buy land
             if (input.equals("Y")) {
                 propertyRelatedAction.buyland(player, landSquare);
                 propertyView.printBuyMessage(landSquare);
-            } else {
+            }
+            //player choose not to buy land
+            else {
                 propertyView.printNotBuyMessage();
             }
         }

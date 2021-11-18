@@ -45,7 +45,7 @@ public class JailRelatedActionController {
             jailView.printDiceMessage(j.dice.dice1, j.dice.dice2, j.dice.totalDice);
             j.updateInJail_R(p);
         }
-        else{ // pay fee
+        else{ // pay fine
             jailView.printPayFeeMessage(p.getName());
             j.updateInJail_P(p);
         }

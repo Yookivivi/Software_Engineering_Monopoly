@@ -40,9 +40,6 @@ class PropertyRelatedActionTest {
         y1.buyland(p1,l1);
         y1.updateProperty(p1,l1);
         Assertions.assertEquals(p1.getId(),l1.getOwner().getId());
-        //System.out.println(p1.getPropertyList().getLandList().get(0));
-        //System.out.println(p1.getPropertyList().getLandList().get(1));
-        //System.out.println(p1.getPropertyList().getLandList().get(2));
         Assertions.assertEquals(l1.getPosition(),p1.getPropertyList().getLandList().get(2));
     }
 
@@ -50,14 +47,10 @@ class PropertyRelatedActionTest {
     void updatePropertyTest() {
         p2.getPropertyList().updateProperty(1,7);
         p2.getPropertyList().updateProperty(1,8);
-        // player 2 is at position 10
-       // l2.position = 10;
+        // player 2 is at position 10 and buy the land
         p2.setPosition(l2.getPosition());
         y2.buyland(p2, l2);
         y2.updateProperty(p2,l2);
-        //System.out.println(p2.getPropertyList().getLandList().get(0));
-        //System.out.println(p2.getPropertyList().getLandList().get(1));
-        //System.out.println(p2.getPropertyList().getLandList().get(2));
         Assertions.assertEquals(p2.getId(),l2.getOwner().getId());
         Assertions.assertEquals(l2.getPosition(),p2.getPropertyList().getLandList().get(2));
     }
