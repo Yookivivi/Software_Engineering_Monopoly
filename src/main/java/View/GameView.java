@@ -187,6 +187,6 @@ public class GameView implements Serializable{
      * print the message to ask player's action after safe
      */
     public void printSaveExit(){
-        System.out.println("> Enter e to exit and c to continue: \"");
+        System.out.println("> Enter e to exit and c to continue:");
     }
 }

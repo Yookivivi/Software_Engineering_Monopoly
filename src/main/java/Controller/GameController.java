@@ -39,7 +39,6 @@ public class GameController {
         String choice = s.nextLine();
         while(!choice.equals("m") && !choice.equals("e")){
             gameView.printInvalidChoiceMessage();
-            s = new Scanner(System.in);
             choice = s.nextLine();
         }
         if (choice.equals("e")){
@@ -58,7 +57,6 @@ public class GameController {
         String input_num=S.nextLine();
         while(!input_num.equals("1") && !input_num.equals("2") && !input_num.equals("3")){
             gameView.printInvalidChoiceMessage();
-            S=new Scanner(System.in);
             input_num=S.nextLine();
         }
         return input_num;
@@ -74,7 +72,6 @@ public class GameController {
         int input_num=S.nextInt();
         while(input_num<2 || input_num>6){
             gameView.printInvalidChoiceMessage();
-            S=new Scanner(System.in);
             input_num=S.nextInt();
         }
         game.startGame(input_num);
@@ -175,7 +172,6 @@ public class GameController {
 
             while(choice < 1 || choice > fs.length){
                 gameView.printInvalidChoiceMessage();
-                s = new Scanner(System.in);
                 choice = s.nextInt();
             }
             return game.loadGame(fs[choice-1]); // load game accordingly
