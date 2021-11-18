@@ -70,11 +70,8 @@ public class Game implements Serializable{
         }
     };// to save game
 
-    public void takeTurn(){
-        //Player player=players[currentPlayers[i]-1];
-        Player player=players[currentPlayer-1];
-        PlayerController playerController=new PlayerController(player, board);
-        playerController.startTurnController();
+    public void takeTurn(Player player){
+
         if(player.getIsOut()){
             int index= Arrays.binarySearch(currentPlayers, currentPlayer);
             int formal_length=currentPlayers.length;

@@ -17,6 +17,7 @@ class JailRelatedActionTest {
         p = new Player();
         j = new JailRelatedAction(p);
         d = new Dice();
+        j.dice=d;
     }
 
 

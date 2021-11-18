@@ -156,8 +156,11 @@ public class GameController {
                 game.currentPlayer=game.currentPlayers[0];//go back to the first player
             }
             while (game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
+                Player player=game.players[game.currentPlayer-1];
+                PlayerController playerController=new PlayerController(player, game.board);
+                playerController.startTurnController();
                 //takeTurn
-                game.takeTurn();
+                game.takeTurn(player);
                 //printboard
                 game.boardController.printBoard();
                 //print player's information
