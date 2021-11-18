@@ -83,7 +83,7 @@ public class PlayerController {
     }
 
     /**
-     *
+     * update player's isOut status (if player's money <= 0, set player to isOut)
      */
     public void updateIsOut(){ // judge if the player is out
         if (player.getMoney()<=0){
