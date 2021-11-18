@@ -106,21 +106,18 @@ public class GameController {
         String choice=S.nextLine();
         while(!choice.equals("s") && !choice.equals("e") && !choice.equals("c")){
             gameView.printInvalidChoiceMessage();
-            S = new Scanner(System.in);
             choice = S.nextLine();
         }
+
         if(choice.equals("s")){ // save game
             gameView.printSaveNameMessage();
-            S=new Scanner(System.in);
             String name=S.nextLine(); // name should not include format (e.g. .txt)
             File file = new File("save/"+name+".dat");
             if (file.exists()){ // overwrite file
                 gameView.printSaveOverwriteMessage();
-                S = new Scanner(System.in);
                 String overwriteChoice = S.nextLine();
                 while(!overwriteChoice.equals("y") && !overwriteChoice.equals("n")){
                     gameView.printInvalidChoiceMessage();
-                    S = new Scanner(System.in);
                     overwriteChoice = S.nextLine();
                 }
                 if (overwriteChoice.equals("y")){
@@ -133,7 +130,17 @@ public class GameController {
             else{
                 game.saveGame(name);
             }
-            return 1;
+            //ask exit or not
+            gameView.printSaveExit();
+            choice = S.nextLine();
+            while(!choice.equals("e") && !choice.equals("c")){
+                gameView.printInvalidChoiceMessage();
+                choice = S.nextLine();
+            }
+            if(choice.equals("e"))
+                return 0;
+            else
+                return 1;
         }
         else if (choice.equals("e")){ // exit game
             return 0;
