@@ -97,7 +97,7 @@ public class GameController {
      * controller to save game
      * @return 0: exit game  1: continue game
      */
-    public int saveGameController(){ // return 0: exit 1: continue
+    public int saveGameController(int current_playerNum){ // return 0: exit 1: continue
         gameView.printTurnEndMessage();
         Scanner S=new Scanner(System.in);
         String choice=S.nextLine();
@@ -107,6 +107,10 @@ public class GameController {
         }
 
         if(choice.equals("s")){ // save game
+            if(game.currentPlayer>=game.currentPlayers[current_playerNum-1]){
+                game.currentPlayer=game.currentPlayers[0];
+                game.currentRound++;
+            }
             gameView.printSaveNameMessage();
             String name=S.nextLine(); // name should not include format (e.g. .txt)
             File file = new File("save/"+name+".dat");
@@ -121,7 +125,7 @@ public class GameController {
                     game.saveGame(name);
                 }
                 else{
-                    saveGameController();
+                    saveGameController(current_playerNum);
                 }
             }
             else{
@@ -200,12 +204,8 @@ public class GameController {
                 // print player's information
                 gameView.printPlayersPosition(game);
                 current_playerNum=game.currentPlayers.length;
-                int exit = saveGameController();
+                int exit = saveGameController(current_playerNum);
                 if (exit == 0){
-                    if(game.currentPlayer<=game.currentPlayers[current_playerNum-1]){
-                        game.currentPlayer=game.currentPlayers[0];
-                        game.currentRound++;
-                    }
                     break here;
                 }
                 // judge if game is end

@@ -14,7 +14,7 @@ import View.*;
 public class Game implements Serializable{
     private GameView view;
     public int playerNum; //the number of players
-    public int currentRound = 1; //current round
+    public int currentRound; //current round
     public int[] currentPlayers; //the existing players(which have not been week out)
     public Boolean isEnd = false; 
     public Player[] players; //an array for all the players
@@ -40,6 +40,7 @@ public class Game implements Serializable{
         players=new Player[input_num];
         currentPlayers=new int[input_num];
         currentPlayer=1;
+        currentRound=1;
         boardView = new BoardView();
         boardController = new BoardController(board,boardView);
     };//to start a new game
